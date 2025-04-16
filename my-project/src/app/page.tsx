@@ -1,3 +1,5 @@
+import Header from "./components/Header";
+import Footer from "../app/components/Footer"
 import Image from "next/image";
 import obim01 from "../../public/image/aplication/obi01.png"
 import obi02 from "../../public/image/aplication/obi02.png"
@@ -8,7 +10,9 @@ import metodologia from "../../public/image/aplication/metodologia.png"
 
 export default function aplication() {
   return (
-    <main className="px-8 py-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <>
+    <Header/>
+       <main className="bg-white min-h-screen px-8 py-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       <div>
         <h1 className="text-4xl font-semibold text-black">
           Plataforma <span className="text-[#103ADA] font-medium">OBI</span>
@@ -106,7 +110,7 @@ export default function aplication() {
           </div>
         </div>
 
-        {/* Texto do problema e solução */}
+        
         <div className="flex flex-col gap-8 text-gray-800">
           <div>
             <h2 className="font-semibold text-xl">O problema</h2>
@@ -148,6 +152,11 @@ export default function aplication() {
           />
         </div>
       </div>
+      
   </main>
+   
+  <Footer/>
+    </>
+   
   );
 }

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
-
+/* Fundo e texto fixos */
 :root {
-  --background: #ffffff;
+  --background: #ffffff !important; /* força fundo branco */
   --foreground: #171717;
 }
 
@@ -13,10 +13,11 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* REMOVE o modo escuro automático */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff !important; /* ainda branco mesmo no dark */
+    --foreground: #171717;
   }
 }
 
