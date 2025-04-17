@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Header from "./components/HeaderHome";
 import Footer from "./components/Footer";
+import Link from "next/link";
 export default function Home() {
   return (
     <>
@@ -157,36 +158,40 @@ export default function Home() {
           </p>
         </div>
         <div className="flex flex-col lg:flex-row gap-12 col-span-full mt-12 items-center justify-around">
-          <div className="bg-white shadow-xl shadow-black/50 rounded-[20px] p-8 flex flex-col items-center">
-            <Image
-              src="/image/home/logoobi.png"
-              alt="Logo 5up"
-              width={200}
-              height={100}
-            />
-            <h2 className="mt-8 text-3xl">OBI</h2>
-            <p className="mt-8 text-2xl text-center ">
-              Plataforma pedagógica inclusiva para alunos neurodivergentes.
-            </p>
-            <button className="p-2 mt-8 bg-blue-600 rounded-2xl min-w-[300] text-white text-2xl">
-              Saiba Mais
-            </button>
-          </div>
-          <div className="bg-white shadow-xl shadow-black/50 rounded-[20px] p-8 flex flex-col items-center">
-            <Image
-              src="/image/home/logovupt.png"
-              alt="Logo Senac"
-              width={200}
-              height={100}
-            />
-            <h2 className="mt-8 text-3xl">VUPT! EXPRESS</h2>
-            <p className="mt-8 text-2xl text-center">
-              Otimização de compras e entregas para pequenos varejistas.
-            </p>
-            <button className="p-2 mt-8 bg-blue-600 rounded-2xl min-w-[300] text-white text-2xl">
-              Saiba Mais
-            </button>
-          </div>
+        <div className="bg-[#D9D9D9] shadow-xl shadow-black/50 rounded-[16px] p-6 flex flex-col items-center transform transition-transform duration-300 hover:scale-105">
+  <Image
+    src="/image/home/logoobi.png"
+    alt="Logo 5up"
+    width={150}
+    height={75}
+  />
+  <h2 className="mt-6 text-2xl">OBI</h2>
+  <p className="mt-6 text-lg text-center">
+    Plataforma pedagógica inclusiva para alunos neurodivergentes.
+  </p>
+  <Link href={"/aplication"}>
+    <button className="p-2 mt-6 bg-[#103ADA] rounded-xl min-w-[200px] text-white text-lg">
+      Saiba Mais
+    </button>
+  </Link>
+</div>
+<div className="bg-[#D9D9D9] shadow-xl shadow-black/50 rounded-[16px] p-6 flex flex-col items-center transform transition-transform duration-300 hover:scale-105">
+  <Image
+    src="/image/home/logovupt.png"
+    alt="Logo Senac"
+    width={150}
+    height={75}
+  />
+  <h2 className="mt-6 text-2xl">VUPT! EXPRESS</h2>
+  <p className="mt-6 text-lg text-center">
+    Otimização de compras e entregas para pequenos varejistas.
+  </p>
+  <Link href={"/aplication"}>
+    <button className="p-2 mt-6 bg-[#103ADA] rounded-xl min-w-[200px] text-white text-lg">
+      Saiba Mais
+    </button>
+  </Link>
+</div>
 
           {/* <div className="bg-white shadow-xl shadow-black/50 rounded-[20px] p-8 flex flex-col items-center">
             <Image
@@ -206,8 +211,9 @@ export default function Home() {
         </div>
       </section>
       <section className="px-8 py-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <h1 className="text-4xl font-semibold text-black">Nosso Parceiros:</h1>
-        <div
+      <h1 className="text-3xl font-semibold text-black sm:text-4xl mb-10">
+            Nossos <span className="text-[#103ADA] font-medium">Parceiros</span>
+          </h1>        <div
           className="flex flex-col lg:flex-row gap-12 col-span-full mt-12 items-center justify-around
  "
         >
