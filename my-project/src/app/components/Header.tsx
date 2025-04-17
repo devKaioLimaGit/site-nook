@@ -34,13 +34,13 @@ export default function Header() {
 
         {/* Navegação - Desktop */}
         <nav className="hidden md:flex space-x-10 text-lg md:text-xl font-light">
-          <Link href="/" className="hover:underline underline-offset-4">
+          <Link href="/home" className="hover:underline underline-offset-4">
             Home
           </Link>
-          <Link href="/aplicacoes" className="hover:underline underline-offset-4">
+          <Link href="/aplicative" className="hover:underline underline-offset-4">
             Aplicações
           </Link>
-          <Link href="/sobre" className="hover:underline underline-offset-4">
+          <Link href="/about" className="hover:underline underline-offset-4">
             Sobre
           </Link>
           <Link href="/timeline" className="hover:underline underline-offset-4">

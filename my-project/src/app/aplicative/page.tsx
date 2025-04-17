@@ -1,11 +1,11 @@
-import Header from "./components/Header";
-import Footer from "../app/components/Footer"
+import Header from "../components/Header";
+import Footer from "../components/Footer"
 import Image from "next/image";
-import obim01 from "../../public/image/aplication/obi01.png"
-import obi02 from "../../public/image/aplication/obi02.png"
-import vupt01 from "../../public/image/aplication/vupt01.png"
-import vupt02 from "../../public/image/aplication/vupt02.png"
-import metodologia from "../../public/image/aplication/metodologia.png"
+import obim01 from "../../../public/image/aplication/obi01.png"
+import obi02 from "../../../public/image/aplication/obi02.png"
+import vupt01 from "../../../public/image/aplication/vupt01.png"
+import vupt02 from "../../../public/image/aplication/vupt02.png"
+import metodologia from "../../../public/image/aplication/metodologia.png"
 
 
 export default function aplication() {
