@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react"; // ícones de menu
 
-import logoNook from "../../../public/image/header/logoNook.png";
+import logoNook from "../../../public/image/Header/logoNook.png"
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
