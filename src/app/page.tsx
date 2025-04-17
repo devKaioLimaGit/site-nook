@@ -5,44 +5,71 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-<section className="relative w-full h-screen overflow-hidden">
-  {/* Imagem de fundo com Next.js */}
-  <Image
-    src="/image/home/pessoal.jpeg"
-    alt="Grupo NOOK - Conectados para construir o seu amanhã"
-    layout="fill"
-    objectFit="cover"
-    objectPosition="center"
-    className="absolute inset-0 z-0"
-    priority
-    quality={85} // Otimiza a qualidade para carregamento rápido
-  />
+    <section className="relative w-full h-screen overflow-hidden bg-gray-900">
+      {/* Imagem de fundo com efeito parallax sutil */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/image/home/pessoal.jpeg"
+          alt="Grupo NOOK - Conectados para construir o seu amanhã"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          quality={90}
+          priority
+          className="transform transition-transform duration-[10s] ease-out scale-110 hover:scale-100"
+        />
+      </div>
 
-  {/* Camada preta translúcida com gradiente */}
-  <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 z-0"></div>
+      {/* Camada de gradiente com opacidade dinâmica */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30 z-10"></div>
 
-  {/* Header fixo no topo */}
-  <header className="relative z-20">
-    <Header />
-  </header>
+      {/* Partículas de fundo para um toque futurista */}
+      <div className="absolute inset-0 z-5 pointer-events-none">
+        <div className="w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)] animate-pulse-slow"></div>
+      </div>
 
-  {/* Conteúdo centralizado para mobile e desktop */}
-  <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start z-10 text-white text-center md:text-left px-4 sm:px-6 md:px-8">
-    <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light tracking-wide animate-fadeIn">
-      Conectados para
-    </p>
-    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mt-2 md:mt-4 max-w-3xl animate-fadeInUp">
-      CONSTRUIR O SEU AMANHÃ!
-    </h1>
-    <p className="mt-3 sm:mt-4 text-xl sm:text-2xl md:text-3xl font-semibold animate-fadeInUp delay-100">
-      NOOK
-    </p>
-    {/* Botão de CTA (Call to Action) para engajamento */}
-    {/* <button className="mt-6 sm:mt-8 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 ease-in-out transform hover:scale-105">
-      Saiba Mais
-    </button> */}
-  </div>
-</section>
+      {/* Header fixo */}
+      <header className="relative z-30 w-full">
+        <Header />
+      </header>
+
+      {/* Conteúdo principal */}
+      <div className="mt-20 absolute inset-0 flex flex-col justify-center items-center md:items-start z-20 text-white px-4 sm:px-6 md:px-10 lg:px-16">
+        {/* Subtítulo com animação */}
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-light tracking-wider uppercase opacity-90 animate-slideInUp delay-200">
+          Conectados para
+        </p>
+
+        {/* Título principal com destaque */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight mt-2 md:mt-4 max-w-4xl animate-slideInUp delay-400">
+          CONSTRUIR O SEU{' '}
+          <span className="relative inline-block">
+            AMANHÃ!
+            <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-white to-transparent transform scale-x-0 animate-underline origin-left"></span>
+          </span>
+        </h1>
+
+        {/* Marca com efeito de brilho */}
+        <p className="mt-4 sm:mt-6 text-2xl sm:text-3xl md:text-4xl font-semibold animate-slideInUp delay-600">
+          <span className="relative">
+            NOOK
+            <span className="absolute inset-0 bg-gradient-to-r from-white/30 to-transparent blur-md opacity-75 animate-glow"></span>
+          </span>
+        </p>
+
+        {/* Botão CTA com animação avançada */}
+        <Link href={"/about"}>
+        <button
+          className="mt-8 sm:mt-10 px-8 py-4 bg-gradient-to-r from-white to-gray-200 text-gray-900 font-semibold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-500 ease-out transform hover:scale-105 hover:from-gray-100 hover:to-white focus:outline-none focus:ring-4 focus:ring-white/50 animate-slideInUp delay-800"
+          aria-label="Saiba mais sobre a NOOK"
+        >
+          Descubra Agora
+        </button>
+        </Link>
+
+      </div>
+    </section>
+
       <section className="px-4 py-8 max-w-7xl mx-auto grid grid-cols-1 gap-8 sm:px-8 sm:py-12 lg:grid-cols-2 lg:gap-12 items-center">
         <div className="order-1 lg:order-none">
           <h1 className="text-3xl font-semibold text-black sm:text-4xl">
