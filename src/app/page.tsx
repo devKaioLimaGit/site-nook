@@ -5,67 +5,69 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-<section className="relative w-full h-screen overflow-hidden bg-gray-900">
-      {/* Imagem de fundo com efeito parallax sutil */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/image/home/pessoal.jpeg"
-          alt="Grupo NOOK - Conectados para construir o seu amanhã"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          quality={90}
-          priority
-          className="transform transition-transform duration-[10s] ease-out scale-110 hover:scale-100"
-        />
-      </div>
+      <section className="relative w-full h-screen overflow-hidden bg-gray-900">
+        {/* Imagem de fundo com efeito parallax sutil */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/image/home/pessoal.jpeg"
+            alt="Grupo NOOK - Conectados para construir o seu amanhã"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            quality={90}
+            priority
+            className="transform transition-transform duration-[10s] ease-out scale-110 hover:scale-100"
+          />
+        </div>
 
-      {/* Camada de gradiente com opacidade dinâmica */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30 z-10"></div>
+        {/* Camada de gradiente com opacidade dinâmica */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30 z-10"></div>
 
-      {/* Partículas de fundo para um toque futurista */}
-      <div className="absolute inset-0 z-5 pointer-events-none">
-        <div className="w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)] animate-pulse-slow"></div>
-      </div>
+        {/* Partículas de fundo para um toque futurista */}
+        <div className="absolute inset-0 z-5 pointer-events-none">
+          <div className="w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)] animate-pulse-slow"></div>
+        </div>
 
-      {/* Header fixo */}
-      <header className="relative z-30 w-full">
-        <Header />
-      </header>
+        {/* Header fixo */}
+        <header className="relative z-30 w-full">
+          <Header />
+        </header>
 
-      {/* Conteúdo ajustado para ficar mais próximo do header */}
-      <div className="absolute top-52 sm:top-52 md:top-40 left-0 right-0 flex flex-col justify-start items-center md:items-start z-20 text-white px-4 sm:px-6 md:px-10 lg:px-16">
-        {/* Subtítulo com animação */}
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-light tracking-wider uppercase opacity-90 animate-slideInUp delay-200">
-          Conectados para
-        </p>
+        {/* Conteúdo ajustado para ficar mais próximo do header */}
+        <div className="absolute top-52 sm:top-52 md:top-40 left-0 right-0 flex flex-col justify-start items-center md:items-start z-20 text-white px-4 sm:px-6 md:px-10 lg:px-16">
+          {/* Subtítulo com animação */}
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-light tracking-wider uppercase opacity-90 animate-slideInUp delay-200">
+            Conectados para
+          </p>
 
-        {/* Título principal com destaque */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight mt-2 md:mt-4 max-w-4xl animate-slideInUp delay-400">
-          CONSTRUIR O SEU{' '}
-          <span className="relative inline-block">
-            AMANHÃ!
-            <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-white to-transparent transform scale-x-0 animate-underline origin-left"></span>
-          </span>
-        </h1>
+          {/* Título principal com destaque */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight mt-2 md:mt-4 max-w-4xl animate-slideInUp delay-400">
+            CONSTRUIR O SEU{" "}
+            <span className="relative inline-block">
+              AMANHÃ!
+              <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-white to-transparent transform scale-x-0 animate-underline origin-left"></span>
+            </span>
+          </h1>
 
-        {/* Marca com efeito de brilho */}
-        <p className="mt-4 sm:mt-6 text-2xl sm:text-3xl md:text-4xl font-semibold animate-slideInUp delay-600">
-          <span className="relative">
-            NOOK
-            <span className="absolute inset-0 bg-gradient-to-r from-white/30 to-transparent blur-md opacity-75 animate-glow"></span>
-          </span>
-        </p>
+          {/* Marca com efeito de brilho */}
+          <p className="mt-4 sm:mt-6 text-2xl sm:text-3xl md:text-4xl font-semibold animate-slideInUp delay-600">
+            <span className="relative">
+              NOOK
+              <span className="absolute inset-0 bg-gradient-to-r from-white/30 to-transparent blur-md opacity-75 animate-glow"></span>
+            </span>
+          </p>
 
-        {/* Botão CTA com animação avançada */}
-        <button
-          className="mt-6 sm:mt-8 px-8 py-4 bg-gradient-to-r from-white to-gray-200 text-gray-900 font-semibold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-500 ease-out transform hover:scale-105 hover:from-gray-100 hover:to-white focus:outline-none focus:ring-4 focus:ring-white/50 animate-slideInUp delay-800"
-          aria-label="Saiba mais sobre a NOOK"
-        >
-          Descubra Agora
-        </button>
-      </div>
-    </section>
+          {/* Botão CTA com animação avançada */}
+          <Link href={"/aplication"}>
+            <button
+              className="mt-6 sm:mt-8 px-8 py-4 bg-gradient-to-r from-white to-gray-200 text-gray-900 font-semibold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-500 ease-out transform hover:scale-105 hover:from-gray-100 hover:to-white focus:outline-none focus:ring-4 focus:ring-white/50 animate-slideInUp delay-800"
+              aria-label="Saiba mais sobre a NOOK"
+            >
+              Descubra Agora
+            </button>
+          </Link>
+        </div>
+      </section>
       <section className="px-4 py-8 max-w-7xl mx-auto grid grid-cols-1 gap-8 sm:px-8 sm:py-12 lg:grid-cols-2 lg:gap-12 items-center">
         <div className="order-1 lg:order-none">
           <h1 className="text-3xl font-semibold text-black sm:text-4xl">
