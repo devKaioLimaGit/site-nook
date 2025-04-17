@@ -34,8 +34,8 @@ export default function Home() {
       </header>
 
       {/* Conteúdo principal */}
-      <div className="mt-20 absolute inset-0 flex flex-col justify-center items-center md:items-start z-20 text-white px-4 sm:px-6 md:px-10 lg:px-16">
-        {/* Subtítulo com animação */}
+      <div className="mt-24 absolute inset-0 flex flex-col justify-center items-center md:items-start z-20 text-white px-4 sm:px-6 md:px-10 lg:px-16">
+        {/* Subtítulo com animação */} 
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-light tracking-wider uppercase opacity-90 animate-slideInUp delay-200">
           Conectados para
         </p>
