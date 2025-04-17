@@ -5,8 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react"; // ícones de menu
 
-import logoNook from "../../../public/image/header/logoNook.png"
-
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -24,7 +22,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/home" className="flex-shrink-0">
           <Image
-            src={logoNook}
+            src={"/image/header/logoNook.png"}
             alt="Logo"
             width={160}
             height={80}
