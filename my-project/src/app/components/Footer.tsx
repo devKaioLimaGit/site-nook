@@ -4,6 +4,7 @@ import twitter from "../../../public/image/footer/TwitterX.png"
 import facebook from "../../../public/image/footer/Facebook.png"
 import instagram from "../../../public/image/footer/Instagram.png"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function Footer() {
     return (
@@ -17,7 +18,7 @@ export default function Footer() {
             {/* Social Icons */}
             <div className="flex gap-4 mt-6 justify-center md:justify-start">
               <Image src={twitter} alt="X" width={30} height={10} className="cursor-pointer hover:opacity-75" />
-              <Image src={instagram} alt="Instagram" width={30} height={10} className="cursor-pointer hover:opacity-75" />
+              <Link href={"https://www.instagram.com/nook.corp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="} target="__blank"><Image src={instagram} alt="Instagram" width={30} height={10} className="cursor-pointer hover:opacity-75" /></Link> 
               <Image src={facebook} alt="Facebook" width={30} height={10} className="cursor-pointer hover:opacity-75" />
               <Image src={linkdin} alt="LinkedIn" width={30} height={10} className="cursor-pointer hover:opacity-75" />
             </div>

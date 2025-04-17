@@ -33,17 +33,18 @@ export default function Header() {
         </Link>
 
         {/* Navegação - Desktop */}
-        <nav className="hidden md:flex space-x-10 text-lg md:text-xl font-light">
-        <Link href="/" onClick={() => setMenuOpen(false)} className="block">
+           {/* Navegação - Desktop */}
+           <nav className="hidden md:flex space-x-10 text-lg md:text-xl font-light">
+          <Link href="/" className="hover:underline underline-offset-4">
             Home
           </Link>
-          <Link href="/aplication" onClick={() => setMenuOpen(false)} className="block">
+          <Link href="/aplication" className="hover:underline underline-offset-4">
             Aplicações
           </Link>
-          <Link href="/about" onClick={() => setMenuOpen(false)} className="block">
+          <Link href="/about" className="hover:underline underline-offset-4">
             Sobre
           </Link>
-          <Link href="/timeline" onClick={() => setMenuOpen(false)} className="block">
+          <Link href="/timeline" className="hover:underline underline-offset-4">
             Timeline
           </Link>
         </nav>

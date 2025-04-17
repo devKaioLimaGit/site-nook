@@ -108,10 +108,10 @@ export default function Home() {
           <div className="space-y-4">
             <h3 className="text-xl font-semibold">Nosso time</h3>
             <p className="text-gray-300">
-              Lorem ipsum dolor amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore magna aliqua, ut enim ad minim
-              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-              ex ea commodo consequat.
+            O time da startup é formado por mentes inovadoras, com alta capacidade de adaptação e foco em resultados.  
+            Cada membro contribui com habilidades únicas, criando uma sinergia que impulsiona o crescimento.  
+            A colaboração e a paixão pelo propósito movem o grupo em direção à excelência.  
+            Juntos, eles transformam ideias em soluções reais que impactam positivamente o mundo.
             </p>
           </div>
 
@@ -187,7 +187,8 @@ export default function Home() {
               Saiba Mais
             </button>
           </div>
-          <div className="bg-white shadow-xl shadow-black/50 rounded-[20px] p-8 flex flex-col items-center">
+
+          {/* <div className="bg-white shadow-xl shadow-black/50 rounded-[20px] p-8 flex flex-col items-center">
             <Image
               src="/image/home/logogymshop.png"
               alt="Logo Ideias"
@@ -201,7 +202,7 @@ export default function Home() {
             <button className="p-2 mt-8 bg-blue-600 rounded-2xl min-w-[300] text-white text-2xl">
               Saiba Mais
             </button>
-          </div>
+          </div> */}
         </div>
       </section>
       <section className="px-8 py-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

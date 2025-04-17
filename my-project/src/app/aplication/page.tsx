@@ -18,15 +18,10 @@ export default function aplication() {
           Plataforma <span className="text-[#103ADA] font-medium">OBI</span>
         </h1>
         <p className="text-gray-700 mt-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-          ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-        <p className="text-gray-700 mt-4">
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </p>
-        <p className="text-gray-700 mt-4">
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        A Obi é uma aplicação desenvolvida para otimizar a comunicação e a gestão dentro de instituições de ensino.  
+        Ela atua como um elo entre alunos, professores e coordenação, facilitando o acesso a informações relevantes e promovendo uma comunicação mais ágil e eficiente.  
+        Por meio de uma interface simples e intuitiva, a Obi permite o envio de comunicados, o acompanhamento do desempenho dos alunos, a organização de turmas, registro de dados pedagógicos e muito mais.  
+        Com isso, a aplicação não apenas reduz falhas de comunicação, mas também fortalece a relação entre a escola e a comunidade escolar, contribuindo para uma educação mais transparente, colaborativa e tecnológica.
         </p>
       </div>
 
@@ -58,15 +53,13 @@ export default function aplication() {
           <div>
             <h2 className="font-semibold text-xl">O problema</h2>
             <p className="mt-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua.
+            Ela resolve o problema da desorganização e da falta de integração entre alunos, professores e coordenação, que prejudica o acompanhamento pedagógico.
             </p>
           </div>
           <div>
             <h2 className="font-semibold text-xl">A solução</h2>
             <p className="mt-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua.
+            Sua solução centraliza informações acadêmicas, comunicados, atividades e dados dos alunos em uma plataforma acessível e intuitiva.
             </p>
           </div>
         </div>
@@ -133,12 +126,10 @@ export default function aplication() {
             Metodologia usada
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum.
+          Para construir nossas aplicações, utilizamos uma metodologia inovadora baseada na escuta ativa, prototipagem rápida e validação contínua com os usuários finais.
+Colocamos alunos, professores e gestores no centro do processo, ouvindo suas dores reais e testando soluções em ciclos curtos de desenvolvimento.
+Combinamos princípios de design centrado no usuário com práticas ágeis, o que nos permite criar produtos funcionais, leves e alinhados às necessidades do ambiente educacional.
+Essa abordagem colaborativa garante que cada funcionalidade da Obi resolva um problema específico, tornando a aplicação prática, eficiente e verdadeiramente útil para o dia a dia das escolas.
           </p>
         </div>
 
