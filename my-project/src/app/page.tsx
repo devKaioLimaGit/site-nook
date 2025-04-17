@@ -1,8 +1,38 @@
 import Image from "next/image";
-
+import Header from "./components/HeaderHome";
 export default function Home() {
   return (
     <>
+<section className="relative w-full h-screen">
+      {/* Imagem de fundo com Next.js */}
+      <Image 
+        src="/image/home/pessoal.jpeg" 
+        alt="Grupo NOOK"
+        layout="fill"
+        objectFit="cover"
+        objectPosition="center"
+        className="absolute inset-0 z-0"
+        priority // Para carregar a imagem imediatamente
+      />
+
+      {/* Camada preta translúcida */}
+      <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+
+      {/* Header fixo no topo */}
+      <div className="relative z-10">
+        <Header />
+      </div>
+
+      {/* Texto ajustado para a posição da imagem */}
+      <div className="absolute top-[30%] left-8 z-10 text-white text-left px-4">
+        <p className="text-xl md:text-2xl">Conectados para</p>
+        <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+          CONSTRUIR O SEU AMANHÃ!
+        </h1>
+        <p className="mt-4 text-2xl md:text-3xl font-semibold">NOOK</p>
+      </div>
+</section>
+
       <section className="px-8 py-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
           <h1 className="text-5xl font-bold">Principais Aplicações</h1>

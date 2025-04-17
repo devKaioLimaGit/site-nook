@@ -11,7 +11,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-[#0A0A14] text-white">
+    <header className="bg-transparent text-white">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Mobile: botão hambúrguer */}
         <button
@@ -55,10 +55,10 @@ export default function Header() {
           <Link href="/" onClick={() => setMenuOpen(false)} className="block">
             Home
           </Link>
-          <Link href="/aplication" onClick={() => setMenuOpen(false)} className="block">
+          <Link href="/aplicacoes" onClick={() => setMenuOpen(false)} className="block">
             Aplicações
           </Link>
-          <Link href="/about" onClick={() => setMenuOpen(false)} className="block">
+          <Link href="/sobre" onClick={() => setMenuOpen(false)} className="block">
             Sobre
           </Link>
           <Link href="/timeline" onClick={() => setMenuOpen(false)} className="block">
