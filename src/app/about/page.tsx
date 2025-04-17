@@ -76,7 +76,7 @@ export default function About() {
 
         <section className="w-full max-w-7xl bg-white px-4 sm:px-6 lg:px-8 py-12 mx-auto">
           <h1 className="text-3xl font-semibold text-black sm:text-4xl mb-10">
-            Equipe <span className="text-[#103ADA] font-medium">NOOK COMPANY</span>
+            Equipe <span className="text-[#103ADA] font-medium">NOOK</span>
           </h1>
           <div className="w-full flex flex-col justify-center items-start mb-10">
             <div className="w-full grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
