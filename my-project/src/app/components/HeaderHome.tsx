@@ -22,7 +22,7 @@ export default function Header() {
         </button>
 
         {/* Logo */}
-        <Link href="/home" className="flex-shrink-0">
+        <Link href="/" className="flex-shrink-0">
           <Image
             src={logoNook}
             alt="Logo"
@@ -34,16 +34,16 @@ export default function Header() {
 
         {/* Navegação - Desktop */}
         <nav className="hidden md:flex space-x-10 text-lg md:text-xl font-light">
-          <Link href="/" className="hover:underline underline-offset-4">
+        <Link href="/" onClick={() => setMenuOpen(false)} className="block">
             Home
           </Link>
-          <Link href="/aplication" className="hover:underline underline-offset-4">
+          <Link href="/aplication" onClick={() => setMenuOpen(false)} className="block">
             Aplicações
           </Link>
-          <Link href="/about" className="hover:underline underline-offset-4">
+          <Link href="/about" onClick={() => setMenuOpen(false)} className="block">
             Sobre
           </Link>
-          <Link href="/timeline" className="hover:underline underline-offset-4">
+          <Link href="/timeline" onClick={() => setMenuOpen(false)} className="block">
             Timeline
           </Link>
         </nav>
@@ -55,10 +55,10 @@ export default function Header() {
           <Link href="/" onClick={() => setMenuOpen(false)} className="block">
             Home
           </Link>
-          <Link href="/aplicacoes" onClick={() => setMenuOpen(false)} className="block">
+          <Link href="/aplication" onClick={() => setMenuOpen(false)} className="block">
             Aplicações
           </Link>
-          <Link href="/sobre" onClick={() => setMenuOpen(false)} className="block">
+          <Link href="/about" onClick={() => setMenuOpen(false)} className="block">
             Sobre
           </Link>
           <Link href="/timeline" onClick={() => setMenuOpen(false)} className="block">

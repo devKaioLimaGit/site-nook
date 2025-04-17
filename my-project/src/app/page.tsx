@@ -34,13 +34,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-8 py-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <h1 className="text-4xl font-semibold text-black">
+      <section className="px-4 py-8 max-w-7xl mx-auto grid grid-cols-1 gap-8 sm:px-8 sm:py-12 lg:grid-cols-2 lg:gap-12 items-center">
+        <div className="order-1 lg:order-none">
+          <h1 className="text-3xl font-semibold text-black sm:text-4xl">
             Pense em{" "}
             <span className="text-[#103ADA] font-medium">Inovação</span>
           </h1>
-          <p className="mt-8 text-2xl text-left text-black">
+          <p className="mt-6 text-lg text-left text-black sm:mt-8 sm:text-xl md:text-2xl">
             A NOOK é uma startup de soluções tecnológicas <br />
             focada em promover inclusão e acessibilidade <br />
             para populações minoritárias. Nossos projetos <br />
@@ -53,7 +53,7 @@ export default function Home() {
           alt="Grupo NOOK"
           width={300}
           height={300}
-          className="ml-auto"
+          className="order-2 mx-auto lg:ml-auto lg:mr-0"
         />
       </section>
 
@@ -232,7 +232,7 @@ export default function Home() {
           />
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </>
   );
 }
