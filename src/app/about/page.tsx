@@ -114,7 +114,7 @@ export default function About() {
                     Ruan Guedes
                   </h3>
                   <span className="text-gray-600 text-sm sm:text-base">
-                    CEO
+                    COO
                   </span>
                 </div>
               </div>

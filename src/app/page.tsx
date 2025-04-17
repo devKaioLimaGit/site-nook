@@ -5,36 +5,44 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <section className="relative w-full h-screen">
-        {/* Imagem de fundo com Next.js */}
-        <Image
-          src="/image/home/pessoal.jpeg"
-          alt="Grupo NOOK"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          className="absolute inset-0 z-0"
-          priority // Para carregar a imagem imediatamente
-        />
+<section className="relative w-full h-screen overflow-hidden">
+  {/* Imagem de fundo com Next.js */}
+  <Image
+    src="/image/home/pessoal.jpeg"
+    alt="Grupo NOOK - Conectados para construir o seu amanhã"
+    layout="fill"
+    objectFit="cover"
+    objectPosition="center"
+    className="absolute inset-0 z-0"
+    priority
+    quality={85} // Otimiza a qualidade para carregamento rápido
+  />
 
-        {/* Camada preta translúcida */}
-        <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+  {/* Camada preta translúcida com gradiente */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 z-0"></div>
 
-        {/* Header fixo no topo */}
-        <div className="relative z-10">
-          <Header />
-        </div>
+  {/* Header fixo no topo */}
+  <header className="relative z-20">
+    <Header />
+  </header>
 
-        {/* Texto ajustado para a posição da imagem */}
-        <div className="absolute top-[30%] left-8 z-10 text-white text-left px-4">
-          <p className="text-xl md:text-2xl">Conectados para</p>
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            CONSTRUIR O SEU AMANHÃ!
-          </h1>
-          <p className="mt-4 text-2xl md:text-3xl font-semibold">NOOK</p>
-        </div>
-      </section>
-
+  {/* Conteúdo centralizado para mobile e desktop */}
+  <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start z-10 text-white text-center md:text-left px-4 sm:px-6 md:px-8">
+    <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light tracking-wide animate-fadeIn">
+      Conectados para
+    </p>
+    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mt-2 md:mt-4 max-w-3xl animate-fadeInUp">
+      CONSTRUIR O SEU AMANHÃ!
+    </h1>
+    <p className="mt-3 sm:mt-4 text-xl sm:text-2xl md:text-3xl font-semibold animate-fadeInUp delay-100">
+      NOOK
+    </p>
+    {/* Botão de CTA (Call to Action) para engajamento */}
+    {/* <button className="mt-6 sm:mt-8 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 ease-in-out transform hover:scale-105">
+      Saiba Mais
+    </button> */}
+  </div>
+</section>
       <section className="px-4 py-8 max-w-7xl mx-auto grid grid-cols-1 gap-8 sm:px-8 sm:py-12 lg:grid-cols-2 lg:gap-12 items-center">
         <div className="order-1 lg:order-none">
           <h1 className="text-3xl font-semibold text-black sm:text-4xl">
