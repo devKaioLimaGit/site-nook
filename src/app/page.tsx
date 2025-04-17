@@ -58,7 +58,7 @@ export default function Home() {
           </p>
 
           {/* Botão CTA com animação avançada */}
-          <Link href={"/aplication"}>
+          <Link href={"/about"}>
             <button
               className="mt-6 sm:mt-8 px-8 py-4 bg-gradient-to-r from-white to-gray-200 text-gray-900 font-semibold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-500 ease-out transform hover:scale-105 hover:from-gray-100 hover:to-white focus:outline-none focus:ring-4 focus:ring-white/50 animate-slideInUp delay-800"
               aria-label="Saiba mais sobre a NOOK"
