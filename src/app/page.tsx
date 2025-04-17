@@ -34,7 +34,7 @@ export default function Home() {
       </header>
 
       {/* Conteúdo ajustado para ficar mais próximo do header */}
-      <div className="absolute top-52 sm:top-20 md:top-24 left-0 right-0 flex flex-col justify-start items-center md:items-start z-20 text-white px-4 sm:px-6 md:px-10 lg:px-16">
+      <div className="absolute top-52 sm:top-52 md:top-40 left-0 right-0 flex flex-col justify-start items-center md:items-start z-20 text-white px-4 sm:px-6 md:px-10 lg:px-16">
         {/* Subtítulo com animação */}
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-light tracking-wider uppercase opacity-90 animate-slideInUp delay-200">
           Conectados para
