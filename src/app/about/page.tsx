@@ -4,20 +4,102 @@ import Footer from "../components/Footer";
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
-// import { FaInstagramSquare } from "react-icons/fa";
-// import { FaGithub } from "react-icons/fa6";
+import { useEffect, useState } from "react";
 import { FaLinkedin } from "react-icons/fa";
 
 export default function About() {
-  // Inicializar AOS
+  // Initialize AOS
   useEffect(() => {
     AOS.init({
-      duration: 800, // Duração das animações
-      easing: "ease-in-out", // Transição suave
-      once: true, // Animação ocorre apenas uma vez
+      duration: 800, // Animation duration
+      easing: "ease-in-out", // Smooth transition
+      once: true, // Animation occurs only once
     });
   }, []);
+
+  // State to track which team member's description is visible
+  const [activeMember, setActiveMember] = useState(null);
+
+  // Toggle description visibility on click
+  const toggleDescription = (memberId:any) => {
+    setActiveMember(activeMember === memberId ? null : memberId);
+  };
+
+  // Team members data
+  const teamMembers = [
+    {
+      id: "erick",
+      name: "Erick Carrasco",
+      role: "CEO",
+      image: "/image/about/carrasco.png",
+      description:
+        "Erick lidera a NOOK com visão estratégica, focando em inovação e impacto social.",
+      linkedin: "https://linkedin.com/in/erickcarrasco",
+    },
+    {
+      id: "ruan",
+      name: "Ruan Guedes",
+      role: "COO",
+      image: "/image/about/ruan.png",
+      description:
+        "Ruan gerencia operações, garantindo eficiência e alinhamento com os objetivos da NOOK.",
+      linkedin: "https://linkedin.com/in/ruanguedes",
+    },
+    {
+      id: "italo",
+      name: "Ítalo Braz",
+      role: "CTO",
+      image: "/image/about/italo.png",
+      description:
+        "Ítalo lidera o desenvolvimento técnico, trazendo soluções inovadoras para os projetos.",
+      linkedin: "https://linkedin.com/in/italobraz",
+    },
+    {
+      id: "lucas",
+      name: "Lucas Vicente",
+      role: "DEV",
+      image: "/image/about/lucas.png",
+      description:
+        "Lucas é um desenvolvedor dedicado, criando código robusto para as aplicações da NOOK.",
+      linkedin: "https://linkedin.com/in/lucasvicente",
+    },
+    {
+      id: "pedro",
+      name: "Pedro Caribé",
+      role: "CDO",
+      image: "/image/about/pedro.png",
+      description:
+        "Pedro lidera o design, criando experiências visuais impactantes e acessíveis.",
+      linkedin: "https://linkedin.com/in/pedrocaribe",
+    },
+    {
+      id: "danton",
+      name: "Danton Prates",
+      role: "Designer",
+      image: "/image/about/danton.png",
+      description:
+        "Danton traz criatividade ao design, aprimorando a estética dos produtos NOOK.",
+      linkedin: "https://linkedin.com/in/dantonprates",
+    },
+    {
+      id: "dandara",
+      name: "Dandara Gouveia",
+      role: "DBA",
+      image: "/image/about/dandara.png",
+      description:
+        "Dandara gerencia bancos de dados, garantindo segurança e performance.",
+      linkedin: "https://linkedin.com/in/dandaragouveia",
+    },
+    {
+      id: "ivo",
+      name: "Ivo Leonardo",
+      role: "Mentor",
+      image: "/image/about/ivo.png",
+      description:
+        "Ivo orienta a equipe com sua experiência, impulsionando o crescimento da NOOK.",
+      linkedin: "https://linkedin.com/in/ivoleonardo",
+    },
+  ];
 
   return (
     <>
@@ -156,318 +238,54 @@ export default function About() {
             data-aos-delay="300"
           >
             <div className="w-full grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-              <div
-                className="relative flex flex-col items-center text-center group"
-                data-aos="zoom-in"
-                data-aos-delay="400"
-              >
-                <Image
-                  src="/image/about/carrasco.png"
-                  width={150}
-                  height={150}
-                  quality={100}
-                  alt="Foto de Erick Carrasco"
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 200px"
-                />
-                <div className="mt-2">
-                  <h3 className="font-semibold text-base sm:text-lg">
-                    Erick Carrasco
-                  </h3>
-                  <span className="text-gray-600 text-sm sm:text-base">
-                    CEO
-                  </span>
-                </div>
-                <div className="absolute top-0 left-0 w-full h-full bg-white opacity-0 group-hover:opacity-100 transform group-hover:translate-y-0 translate-y-4 transition-all duration-300 shadow-lg rounded-lg p-4 flex flex-col items-center justify-center">
-                  <p className="text-sm text-gray-700 mb-4">
-                    Erick lidera a NOOK com visão estratégica, focando em inovação e impacto social.
-                  </p>
-                  <div className="flex gap-4">
-                    <a href="https://linkedin.com/in/erickcarrasco" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Erick Carrasco">
-                      <FaLinkedin className="text-[#103ADA] text-xl hover:text-[#0A66C2] transition-colors" />
-                    </a>
-                    {/* <a href="https://github.com/erickcarrasco" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Erick Carrasco">
-                      <FaGithub className="text-[#103ADA] text-xl hover:text-[#24292e] transition-colors" />
-                    </a>
-                    <a href="https://instagram.com/erickcarrasco" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Erick Carrasco">
-                      <FaInstagramSquare className="text-[#103ADA] text-xl hover:text-[#E4405F] transition-colors" />
-                    </a> */}
+              {teamMembers.map((member, index) => (
+                <div
+                  key={member.id}
+                  className="relative flex flex-col items-center text-center group cursor-pointer"
+                  data-aos="zoom-in"
+                  data-aos-delay={400 + index * 50}
+                  onClick={() => toggleDescription(member.id)}
+                >
+                  <Image
+                    src={member.image}
+                    width={150}
+                    height={150}
+                    quality={100}
+                    alt={`Foto de ${member.name}`}
+                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, 200px"
+                  />
+                  <div className="mt-2">
+                    <h3 className="font-semibold text-base sm:text-lg">
+                      {member.name}
+                    </h3>
+                    <span className="text-gray-600 text-sm sm:text-base">
+                      {member.role}
+                    </span>
+                  </div>
+                  <div
+                    className={`absolute top-0 left-0 w-full h-full bg-white ${
+                      activeMember === member.id
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-4"
+                    } lg:group-hover:opacity-100 lg:group-hover:translate-y-0 transition-all duration-300 shadow-lg rounded-lg p-4 flex flex-col items-center justify-center`}
+                  >
+                    <p className="text-sm text-gray-700 mb-4">
+                      {member.description}
+                    </p>
+                    <div className="flex gap-4">
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`LinkedIn de ${member.name}`}
+                      >
+                        <FaLinkedin className="text-[#103ADA] text-xl hover:text-[#0A66C2] transition-colors" />
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                className="relative flex flex-col items-center text-center group"
-                data-aos="zoom-in"
-                data-aos-delay="450"
-              >
-                <Image
-                  src="/image/about/ruan.png"
-                  width={150}
-                  height={150}
-                  quality={100}
-                  alt="Foto de Ruan Guedes"
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 200px"
-                />
-                <div className="mt-2">
-                  <h3 className="font-semibold text-base sm:text-lg">
-                    Ruan Guedes
-                  </h3>
-                  <span className="text-gray-600 text-sm sm:text-base">
-                    COO
-                  </span>
-                </div>
-                <div className="absolute top-0 left-0 w-full h-full bg-white opacity-0 group-hover:opacity-100 transform group-hover:translate-y-0 translate-y-4 transition-all duration-300 shadow-lg rounded-lg p-4 flex flex-col items-center justify-center">
-                  <p className="text-sm text-gray-700 mb-4">
-                    Ruan gerencia operações, garantindo eficiência e alinhamento com os objetivos da NOOK.
-                  </p>
-                  <div className="flex gap-4">
-                    <a href="https://linkedin.com/in/ruanguedes" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Ruan Guedes">
-                      <FaLinkedin className="text-[#103ADA] text-xl hover:text-[#0A66C2] transition-colors" />
-                    </a>
-                    {/* <a href="https://github.com/ruanguedes" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Ruan Guedes">
-                      <FaGithub className="text-[#103ADA] text-xl hover:text-[#24292e] transition-colors" />
-                    </a>
-                    <a href="https://instagram.com/ruanguedes" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Ruan Guedes">
-                      <FaInstagramSquare className="text-[#103ADA] text-xl hover:text-[#E4405F] transition-colors" />
-                    </a> */}
-                  </div>
-                </div>
-              </div>
-              <div
-                className="relative flex flex-col items-center text-center group"
-                data-aos="zoom-in"
-                data-aos-delay="500"
-              >
-                <Image
-                  src="/image/about/italo.png"
-                  width={150}
-                  height={150}
-                  quality={100}
-                  alt="Foto de Ítalo Braz"
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 200px"
-                />
-                <div className="mt-2">
-                  <h3 className="font-semibold text-base sm:text-lg">
-                    Ítalo Braz
-                  </h3>
-                  <span className="text-gray-600 text-sm sm:text-base">
-                    CTO
-                  </span>
-                </div>
-                <div className="absolute top-0 left-0 w-full h-full bg-white opacity-0 group-hover:opacity-100 transform group-hover:translate-y-0 translate-y-4 transition-all duration-300 shadow-lg rounded-lg p-4 flex flex-col items-center justify-center">
-                  <p className="text-sm text-gray-700 mb-4">
-                    Ítalo lidera o desenvolvimento técnico, trazendo soluções inovadoras para os projetos.
-                  </p>
-                  <div className="flex gap-4">
-                    <a href="https://linkedin.com/in/italobraz" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Ítalo Braz">
-                      <FaLinkedin className="text-[#103ADA] text-xl hover:text-[#0A66C2] transition-colors" />
-                    </a>
-                    {/* <a href="https://github.com/italobraz" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Ítalo Braz">
-                      <FaGithub className="text-[#103ADA] text-xl hover:text-[#24292e] transition-colors" />
-                    </a>
-                    <a href="https://instagram.com/italobraz" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Ítalo Braz">
-                      <FaInstagramSquare className="text-[#103ADA] text-xl hover:text-[#E4405F] transition-colors" />
-                    </a> */}
-                  </div>
-                </div>
-              </div>
-              <div
-                className="relative flex flex-col items-center text-center group"
-                data-aos="zoom-in"
-                data-aos-delay="550"
-              >
-                <Image
-                  src="/image/about/lucas.png"
-                  width={150}
-                  height={150}
-                  quality={100}
-                  alt="Foto de Lucas Vicente"
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 200px"
-                />
-                <div className="mt-2">
-                  <h3 className="font-semibold text-base sm:text-lg">
-                    Lucas Vicente
-                  </h3>
-                  <span className="text-gray-600 text-sm sm:text-base">
-                    DEV
-                  </span>
-                </div>
-                <div className="absolute top-0 left-0 w-full h-full bg-white opacity-0 group-hover:opacity-100 transform group-hover:translate-y-0 translate-y-4 transition-all duration-300 shadow-lg rounded-lg p-4 flex flex-col items-center justify-center">
-                  <p className="text-sm text-gray-700 mb-4">
-                    Lucas é um desenvolvedor dedicado, criando código robusto para as aplicações da NOOK.
-                  </p>
-                  <div className="flex gap-4">
-                    <a href="https://linkedin.com/in/lucasvicente" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Lucas Vicente">
-                      <FaLinkedin className="text-[#103ADA] text-xl hover:text-[#0A66C2] transition-colors" />
-                    </a>
-                    {/* <a href="https://github.com/lucasvicente" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Lucas Vicente">
-                      <FaGithub className="text-[#103ADA] text-xl hover:text-[#24292e] transition-colors" />
-                    </a>
-                    <a href="https://instagram.com/lucasvicente" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Lucas Vicente">
-                      <FaInstagramSquare className="text-[#103ADA] text-xl hover:text-[#E4405F] transition-colors" />
-                    </a> */}
-                  </div>
-                </div>
-              </div>
-              <div
-                className="relative flex flex-col items-center text-center group"
-                data-aos="zoom-in"
-                data-aos-delay="600"
-              >
-                <Image
-                  src="/image/about/pedro.png"
-                  width={150}
-                  height={150}
-                  quality={100}
-                  alt="Foto de Pedro Caribé"
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 200px"
-                />
-                <div className="mt-2">
-                  <h3 className="font-semibold text-base sm:text-lg">
-                    Pedro Caribé
-                  </h3>
-                  <span className="text-gray-600 text-sm sm:text-base">
-                    CDO
-                  </span>
-                </div>
-                <div className="absolute top-0 left-0 w-full h-full bg-white opacity-0 group-hover:opacity-100 transform group-hover:translate-y-0 translate-y-4 transition-all duration-300 shadow-lg rounded-lg p-4 flex flex-col items-center justify-center">
-                  <p className="text-sm text-gray-700 mb-4">
-                    Pedro lidera o design, criando experiências visuais impactantes e acessíveis.
-                  </p>
-                  <div className="flex gap-4">
-                    <a href="https://linkedin.com/in/pedrocaribe" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Pedro Caribé">
-                      <FaLinkedin className="text-[#103ADA] text-xl hover:text-[#0A66C2] transition-colors" />
-                    </a>
-                    {/* <a href="https://github.com/pedrocaribe" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Pedro Caribé">
-                      <FaGithub className="text-[#103ADA] text-xl hover:text-[#24292e] transition-colors" />
-                    </a>
-                    <a href="https://instagram.com/pedrocaribe" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Pedro Caribé">
-                      <FaInstagramSquare className="text-[#103ADA] text-xl hover:text-[#E4405F] transition-colors" />
-                    </a> */}
-                  </div>
-                </div>
-              </div>
-              <div
-                className="relative flex flex-col items-center text-center group"
-                data-aos="zoom-in"
-                data-aos-delay="650"
-              >
-                <Image
-                  src="/image/about/danton.png"
-                  width={150}
-                  height={150}
-                  quality={100}
-                  alt="Foto de Danton Prates"
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 200px"
-                />
-                <div className="mt-2">
-                  <h3 className="font-semibold text-base sm:text-lg">
-                    Danton Prates
-                  </h3>
-                  <span className="text-gray-600 text-sm sm:text-base">
-                    Designer
-                  </span>
-                </div>
-                <div className="absolute top-0 left-0 w-full h-full bg-white opacity-0 group-hover:opacity-100 transform group-hover:translate-y-0 translate-y-4 transition-all duration-300 shadow-lg rounded-lg p-4 flex flex-col items-center justify-center">
-                  <p className="text-sm text-gray-700 mb-4">
-                    Danton traz criatividade ao design, aprimorando a estética dos produtos NOOK.
-                  </p>
-                  <div className="flex gap-4">
-                    <a href="https://linkedin.com/in/dantonprates" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Danton Prates">
-                      <FaLinkedin className="text-[#103ADA] text-xl hover:text-[#0A66C2] transition-colors" />
-                    </a>
-                    {/* <a href="https://github.com/dantonprates" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Danton Prates">
-                      <FaGithub className="text-[#103ADA] text-xl hover:text-[#24292e] transition-colors" />
-                    </a>
-                    <a href="https://instagram.com/dantonprates" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Danton Prates">
-                      <FaInstagramSquare className="text-[#103ADA] text-xl hover:text-[#E4405F] transition-colors" />
-                    </a> */}
-                  </div>
-                </div>
-              </div>
-              <div
-                className="relative flex flex-col items-center text-center group"
-                data-aos="zoom-in"
-                data-aos-delay="700"
-              >
-                <Image
-                  src="/image/about/dandara.png"
-                  width={150}
-                  height={150}
-                  quality={100}
-                  alt="Foto de Dandara Gouveia"
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 200px"
-                />
-                <div className="mt-2">
-                  <h3 className="font-semibold text-base sm:text-lg">
-                    Dandara Gouveia
-                  </h3>
-                  <span className="text-gray-600 text-sm sm:text-base">
-                    DBA
-                  </span>
-                </div>
-                <div className="absolute top-0 left-0 w-full h-full bg-white opacity-0 group-hover:opacity-100 transform group-hover:translate-y-0 translate-y-4 transition-all duration-300 shadow-lg rounded-lg p-4 flex flex-col items-center justify-center">
-                  <p className="text-sm text-gray-700 mb-4">
-                    Dandara gerencia bancos de dados, garantindo segurança e performance.
-                  </p>
-                  <div className="flex gap-4">
-                    <a href="https://linkedin.com/in/dandaragouveia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Dandara Gouveia">
-                      <FaLinkedin className="text-[#103ADA] text-xl hover:text-[#0A66C2] transition-colors" />
-                    </a>
-                    {/* <a href="https://github.com/dandaragouveia" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Dandara Gouveia">
-                      <FaGithub className="text-[#103ADA] text-xl hover:text-[#24292e] transition-colors" />
-                    </a>
-                    <a href="https://instagram.com/dandaragouveia" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Dandara Gouveia">
-                      <FaInstagramSquare className="text-[#103ADA] text-xl hover:text-[#E4405F] transition-colors" />
-                    </a> */}
-                  </div>
-                </div>
-              </div>
-              <div
-                className="relative flex flex-col items-center text-center group"
-                data-aos="zoom-in"
-                data-aos-delay="750"
-              >
-                <Image
-                  src="/image/about/ivo.png"
-                  width={150}
-                  height={150}
-                  quality={100}
-                  alt="Foto de Ivo Leonardo"
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 200px"
-                />
-                <div className="mt-2">
-                  <h3 className="font-semibold text-base sm:text-lg">
-                    Ivo Leonardo
-                  </h3>
-                  <span className="text-gray-600 text-sm sm:text-base">
-                    Mentor
-                  </span>
-                </div>
-                <div className="absolute top-0 left-0 w-full h-full bg-white opacity-0 group-hover:opacity-100 transform group-hover:translate-y-0 translate-y-4 transition-all duration-300 shadow-lg rounded-lg p-4 flex flex-col items-center justify-center">
-                  <p className="text-sm text-gray-700 mb-4">
-                    Ivo orienta a equipe com sua experiência, impulsionando o crescimento da NOOK.
-                  </p>
-                  <div className="flex gap-4">
-                    <a href="https://linkedin.com/in/ivoleonardo" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Ivo Leonardo">
-                      <FaLinkedin className="text-[#103ADA] text-xl hover:text-[#0A66C2] transition-colors" />
-                    </a>
-                    {/* <a href="https://github.com/ivoleonardo" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Ivo Leonardo">
-                      <FaGithub className="text-[#103ADA] text-xl hover:text-[#24292e] transition-colors" />
-                    </a>
-                    <a href="https://instagram.com/ivoleonardo" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Ivo Leonardo">
-                      <FaInstagramSquare className="text-[#103ADA] text-xl hover:text-[#E4405F] transition-colors" />
-                    </a> */}
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
