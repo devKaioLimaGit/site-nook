@@ -19,63 +19,63 @@ export default function Home() {
 
   return (
     <>
- <section className="relative w-full h-screen bg-gray-900 overflow-x-hidden">
-  <div className="absolute inset-0 z-0">
-    <Image
-      src="/image/home/pessoal.jpeg"
-      alt="Grupo NOOK - Conectados para construir o seu amanhã"
-      layout="fill"
-      objectFit="cover"
-      objectPosition="center"
-      quality={90}
-      priority
-    />
-  </div>
-  <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30 z-10"></div>
-  <div className="absolute inset-0 z-5 pointer-events-none">
-    <div className="w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)]"></div>
-  </div>
-  <header className="relative z-30 w-full">
-    <Header />
-  </header>
-  <div className="absolute top-52 sm:top-52 md:top-40 left-0 right-0 flex flex-col justify-start items-center md:items-start z-20 text-white px-4 sm:px-6 md:px-10 lg:px-16">
-    <p
-      className="text-base sm:text-lg md:text-xl lg:text-2xl font-light tracking-wider uppercase opacity-90"
-      data-aos="fade-up"
-      data-aos-delay="200"
-    >
-      Conectados para
-    </p>
-    <h1
-      className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight mt-2 md:mt-4 max-w-4xl"
-      data-aos="fade-up"
-      data-aos-delay="400"
-    >
-      CONSTRUIR O SEU{" "}
-      <span className="relative inline-block">
-        AMANHÃ!
-        <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-white to-transparent"></span>
-      </span>
-    </h1>
-    <p
-      className="mt-4 sm:mt-6 text-2xl sm:text-3xl md:text-4xl font-semibold"
-      data-aos="fade-up"
-      data-aos-delay="600"
-    >
-      NOOK
-    </p>
-    <Link href="/about">
-      <button
-        className="mt-6 sm:mt-8 px-8 py-4 bg-gradient-to-r from-white to-gray-200 text-gray-900 font-semibold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-500 ease-out transform hover:scale-105 hover:from-gray-100 hover:to-white focus:outline-none focus:ring-4 focus:ring-white/50"
-        aria-label="Saiba mais sobre a NOOK"
-        data-aos="fade-up"
-        data-aos-delay="800"
-      >
-        Descubra Agora
-      </button>
-    </Link>
-  </div>
-</section>
+      <section className="relative w-full h-screen bg-gray-900 overflow-x-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/image/home/pessoal.jpeg"
+            alt="Grupo NOOK - Conectados para construir o seu amanhã"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            quality={90}
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30 z-10"></div>
+        <div className="absolute inset-0 z-5 pointer-events-none">
+          <div className="w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)]"></div>
+        </div>
+        <header className="relative z-30 w-full">
+          <Header />
+        </header>
+        <div className="absolute top-52 sm:top-52 md:top-40 left-0 right-0 flex flex-col justify-start items-center md:items-start z-20 text-white px-4 sm:px-6 md:px-10 lg:px-16">
+          <p
+            className="text-base sm:text-lg md:text-xl lg:text-2xl font-light tracking-wider uppercase opacity-90"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            Conectados para
+          </p>
+          <h1
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight mt-2 md:mt-4 max-w-4xl"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            CONSTRUIR O SEU{" "}
+            <span className="relative inline-block">
+              AMANHÃ!
+              <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-white to-transparent"></span>
+            </span>
+          </h1>
+          <p
+            className="mt-4 sm:mt-6 text-2xl sm:text-3xl md:text-4xl font-semibold"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            NOOK
+          </p>
+          <Link href="/about">
+            <button
+              className="mt-6 sm:mt-8 px-8 py-4 bg-gradient-to-r from-white to-gray-200 text-gray-900 font-semibold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-500 ease-out transform hover:scale-105 hover:from-gray-100 hover:to-white focus:outline-none focus:ring-4 focus:ring-white/50"
+              aria-label="Saiba mais sobre a NOOK"
+              data-aos="fade-up"
+              data-aos-delay="800"
+            >
+              Descubra Agora
+            </button>
+          </Link>
+        </div>
+      </section>
 
       {/* Seção Inovação */}
       <section
