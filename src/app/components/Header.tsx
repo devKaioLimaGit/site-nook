@@ -47,9 +47,6 @@ export default function Header() {
           <Link href="/timeline" className="hover:underline underline-offset-4">
             Timeline
           </Link>
-          <Link href="/signin" className="hover:underline underline-offset-4">
-            Login
-          </Link>
         </nav>
       </div>
 
@@ -70,9 +67,6 @@ export default function Header() {
           </Link>
           <Link href="/timeline" onClick={() => setMenuOpen(false)} className="block">
             Timeline
-          </Link>
-          <Link href="/signin" onClick={() => setMenuOpen(false)} className="block">
-            Login
           </Link>
         </div>
       )}
