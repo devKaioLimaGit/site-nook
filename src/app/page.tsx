@@ -325,7 +325,7 @@ export default function Home() {
         >
           Nossos <span className="text-[#103ADA] font-medium">Parceiros</span>
         </h1>
-        <div className="flex flex-col lg:flex-row gap-8 col-span-full mt-12 items-center justify-center">
+        <div className="flex flex-col lg:flex-row gap-8 col-span-full mt-12 items-center justify-around">
           <Image
             src="/image/home/logoideias.svg"
             alt="Logo Ideias"
