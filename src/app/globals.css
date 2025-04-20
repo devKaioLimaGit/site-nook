@@ -27,3 +27,10 @@ body {
   color: var(--foreground);
   font-family: "Poppins", sans-serif;
 }
+
+/* Remover a animação para telas menores que Full HD, mas maiores que dispositivos móveis */
+@media (min-width: 768px) and (max-width: 1919px) {
+  .animate-pulse-slow {
+    animation: none;
+  }
+}
