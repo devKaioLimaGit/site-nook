@@ -5,8 +5,8 @@ import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import { FaInstagramSquare } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa6";
+// import { FaInstagramSquare } from "react-icons/fa";
+// import { FaGithub } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 
 export default function About() {
