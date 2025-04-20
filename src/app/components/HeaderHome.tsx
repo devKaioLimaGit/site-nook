@@ -57,6 +57,14 @@ export default function Header() {
             Home
           </Link>
           <Link
+            href="/news"
+            className="hover:underline underline-offset-4"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            News
+          </Link>
+          <Link
             href="/aplication"
             className="hover:underline underline-offset-4"
             data-aos="fade-up"
@@ -98,6 +106,14 @@ export default function Header() {
             data-aos-delay="200"
           >
             Home
+          </Link>
+          <Link
+            href="/news"
+            className="hover:underline underline-offset-4"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            News
           </Link>
           <Link
             href="/aplication"

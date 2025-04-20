@@ -35,6 +35,9 @@ export default function Header() {
           <Link href="/" className="hover:underline underline-offset-4">
             Home
           </Link>
+          <Link href="/news" className="hover:underline underline-offset-4">
+            News
+          </Link>
           <Link href="/aplication" className="hover:underline underline-offset-4">
             Aplicações
           </Link>
@@ -52,6 +55,9 @@ export default function Header() {
         <div className="md:hidden px-6 pb-4 space-y-4 text-base">
           <Link href="/" onClick={() => setMenuOpen(false)} className="block">
             Home
+          </Link>
+          <Link href="/news" onClick={() => setMenuOpen(false)} className="block">
+            News
           </Link>
           <Link href="/aplication" onClick={() => setMenuOpen(false)} className="block">
             Aplicações
