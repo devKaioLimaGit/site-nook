@@ -16,14 +16,16 @@ export default function About() {
       once: true, // Animation occurs only once
     });
   }, []);
+  // Apague esta parte:
   interface UserProps {
     id: string
     name: string
     role: string
     image: string
     description: string
-    linkedin: string,
+    linkedin: string
   }
+
   // State to track which team member's description is visible
   const [activeMember, setActiveMember] = useState<string | null>(null);
 
@@ -32,9 +34,9 @@ export default function About() {
   const toggleDescription = (memberId: string) => {
     setActiveMember(activeMember === memberId ? null : memberId);
   };
-  
+
   // Team members data
-  const teamMembers = [
+  const teamMembers: UserProps[] = [
     {
       id: "erick",
       name: "Erick Carrasco",
@@ -273,8 +275,8 @@ export default function About() {
                   </div>
                   <div
                     className={`absolute top-0 left-0 w-full h-full bg-white ${activeMember === member.id
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-4"
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-4"
                       } lg:group-hover:opacity-100 lg:group-hover:translate-y-0 transition-all duration-300 shadow-lg rounded-lg p-4 flex flex-col items-center justify-center`}
                   >
                     <p className="text-sm text-gray-700 mb-4">
