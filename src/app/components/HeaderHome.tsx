@@ -88,6 +88,14 @@ export default function Header() {
           >
             Timeline
           </Link>
+          <Link
+            href="/signin"
+            className="hover:underline underline-offset-4"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            Login
+          </Link>
         </nav>
       </div>
 
@@ -141,6 +149,14 @@ export default function Header() {
             data-aos-delay="500"
           >
             Timeline
+          </Link>
+          <Link
+            href="/signin"
+            className="hover:underline underline-offset-4"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            Login
           </Link>
         </div>
       )}
