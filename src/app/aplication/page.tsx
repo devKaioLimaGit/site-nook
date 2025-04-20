@@ -11,7 +11,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 
-export default function aplication() {
+export default function Aplication() {
   // Inicializar AOS
   useEffect(() => {
     AOS.init({
