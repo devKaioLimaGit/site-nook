@@ -19,6 +19,7 @@ export default function Home() {
 
   return (
     <>
+      {/* Seção Hero */}
       <section className="relative w-full h-screen bg-gray-900 overflow-x-hidden">
         <div className="absolute inset-0 z-0">
           <Image
@@ -33,7 +34,7 @@ export default function Home() {
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30 z-10"></div>
         <div className="absolute inset-0 z-5 pointer-events-none">
-          <div className="w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)]"></div>
+          <div className="w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)] animate-pulse-slow"></div>
         </div>
         <header className="relative z-30 w-full">
           <Header />
@@ -324,7 +325,7 @@ export default function Home() {
         >
           Nossos <span className="text-[#103ADA] font-medium">Parceiros</span>
         </h1>
-        <div className="flex flex-col lg:flex-row gap-12 px-6 col-span-full mt-12 items-center justify-around">
+        <div className="flex flex-col lg:flex-row gap-8 col-span-full mt-12 items-center justify-center">
           <Image
             src="/image/home/logoideias.svg"
             alt="Logo Ideias"
