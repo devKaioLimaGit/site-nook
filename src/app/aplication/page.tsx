@@ -12,140 +12,156 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 
 export default function Aplication() {
-  // Inicializar AOS
+  // Initialize AOS
   useEffect(() => {
     AOS.init({
-      duration: 800, // Duração das animações
-      easing: "ease-in-out", // Transição suave
-      once: true, // Animação ocorre apenas uma vez
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
+      mirror: false,
     });
   }, []);
 
   return (
     <>
       <Header />
-      <main className="bg-white min-h-screen px-8 py-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div data-aos="fade-right" data-aos-delay="200">
-          <h1 className="text-4xl font-semibold text-black">
-            Plataforma <span className="text-[#103ADA] font-medium">OBI</span>
-          </h1>
-          <p className="text-gray-700 mt-4">
-            A Obi é uma aplicação desenvolvida para otimizar a comunicação e a gestão dentro de instituições de ensino.
-            Ela atua como um elo entre alunos, professores e coordenação, facilitando o acesso a informações relevantes e promovendo uma comunicação mais ágil e eficiente.
-            Por meio de uma interface simples e intuitiva, a Obi permite o envio de comunicados, o acompanhamento do desempenho dos alunos, a organização de turmas, registro de dados pedagógicos e muito mais.
-            Com isso, a aplicação não apenas reduz falhas de comunicação, mas também fortalece a relação entre a escola e a comunidade escolar, contribuindo para uma educação mais transparente, colaborativa e tecnológica.
-          </p>
-        </div>
-
-        <div className="flex justify-center" data-aos="fade-left" data-aos-delay="300">
-          <Image
-            src={obim01}
-            alt="Mockup da plataforma"
-            width={300}
-            height={600}
-            className="rounded-xl drop-shadow-lg"
-          />
-        </div>
-
-        <div className="flex flex-col lg:flex-row gap-12 col-span-full mt-12">
-          <div className="flex justify-center lg:justify-start" data-aos="zoom-in" data-aos-delay="400">
-            <div className="p-2">
-              <Image
-                src={obi02}
-                alt="Ilustração"
-                width={180}
-                height={180}
-              />
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-8 text-gray-800">
-            <div data-aos="fade-up" data-aos-delay="500">
-              <h2 className="font-semibold text-xl">O problema</h2>
-              <p className="mt-2">
-                Ela resolve o problema da desorganização e da falta de integração entre alunos, professores e coordenação, que prejudica o acompanhamento pedagógico.
-              </p>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="600">
-              <h2 className="font-semibold text-xl">A solução</h2>
-              <p className="mt-2">
-                Sua solução centraliza informações acadêmicas, comunicados, atividades e dados dos alunos em uma plataforma acessível e intuitiva.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div data-aos="fade-right" data-aos-delay="200">
-          <h1 className="text-4xl font-semibold text-black">
-            Vupt! Express
-          </h1>
-          <p className="text-gray-700 mt-4">
-            A VUPT! EXPRESS é uma plataforma inovadora que tem como objetivo principal resolver problemas enfrentados por pequenos varejistas, como mercadinhos, lojas de suplementos, farmácias, pet shops, entre outros, relacionados ao tempo de espera nas filas e a falta de integração no processo de compras. Focada em facilitar e agilizar a entrega de produtos para consumidores, a plataforma atua na otimização de pedidos e no gerenciamento eficiente das entregas
-          </p>
-        </div>
-
-        <div className="flex justify-center" data-aos="fade-left" data-aos-delay="300">
-          <Image
-            src={vupt01}
-            alt="Mockup da plataforma"
-            width={300}
-            height={600}
-            className="rounded-xl drop-shadow-lg"
-          />
-        </div>
-
-        <div className="flex flex-col lg:flex-row gap-12 col-span-full mt-12">
-          <div className="flex justify-center lg:justify-start" data-aos="zoom-in" data-aos-delay="400">
-            <div className="p-2">
-              <Image
-                src={vupt02}
-                alt="Ilustração"
-                width={380}
-                height={180}
-              />
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-8 text-gray-800">
-            <div data-aos="fade-up" data-aos-delay="500">
-              <h2 className="font-semibold text-xl">O problema</h2>
-              <p className="mt-2">
-                A VUPT! EXPRESS foi desenvolvida para resolver três problemas principais enfrentados por pequenos comerciantes e consumidores: Filas Longas; Falta de Integração e Automação; Erros em Pedidos.
-              </p>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="600">
-              <h2 className="font-semibold text-xl">A solução</h2>
-              <p className="mt-2">
-                A VUPT! EXPRESS propõe uma solução baseada em tecnologia, que automatiza e simplifica o processo de compra e entrega. A plataforma integra pequenos comerciantes, sistemas de pagamento e logística de entrega, oferecendo uma experiência rápida e sem erros para os consumidores.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-span-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-20">
-          <div data-aos="fade-right" data-aos-delay="200">
-            <h2 className="text-3xl font-semibold text-black mb-4">
-              Metodologia usada
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              Para construir nossas aplicações, utilizamos uma metodologia inovadora baseada na escuta ativa, prototipagem rápida e validação contínua com os usuários finais.
-              Colocamos alunos, professores e gestores no centro do processo, ouvindo suas dores reais e testando soluções em ciclos curtos de desenvolvimento.
-              Combinamos princípios de design centrado no usuário com práticas ágeis, o que nos permite criar produtos funcionais, leves e alinhados às necessidades do ambiente educacional.
-              Essa abordagem colaborativa garante que cada funcionalidade da Obi resolva um problema específico, tornando a aplicação prática, eficiente e verdadeiramente útil para o dia a dia das escolas.
+      <main className="bg-white min-h-screen px-4 sm:px-8 py-16 max-w-7xl mx-auto">
+        {/* OBI Section */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+          <div
+            className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
+            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight">
+              Plataforma <span className="text-[#103ADA] font-extrabold">OBI</span>
+            </h1>
+            <p className="text-gray-600 mt-6 text-lg leading-relaxed">
+              A Obi é uma aplicação desenvolvida para otimizar a comunicação e a gestão dentro de instituições de ensino. Ela atua como um elo entre alunos, professores e coordenação, facilitando o acesso a informações relevantes e promovendo uma comunicação mais ágil e eficiente. Por meio de uma interface simples e intuitiva, a Obi permite o envio de comunicados, o acompanhamento do desempenho dos alunos, a organização de turmas, registro de dados pedagógicos e muito mais.
             </p>
           </div>
 
-          <div className="flex justify-center" >
+          <div className="flex justify-center" data-aos="zoom-in" data-aos-delay="300">
+            <Image
+              src={obim01}
+              alt="Mockup da plataforma Obi"
+              width={320}
+              height={640}
+              className="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-8 col-span-full bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+            <div
+              className="flex justify-center lg:justify-start"
+              data-aos="zoom-in"
+              data-aos-delay="400"
+            >
+              <Image
+                src={obi02}
+                alt="Ilustração Obi"
+                width={200}
+                height={200}
+                className="rounded-lg shadow-md"
+              />
+            </div>
+
+            <div className="flex flex-col gap-6 text-gray-800">
+              <div data-aos="fade-up" data-aos-delay="500">
+                <h2 className="font-semibold text-2xl text-gray-900">O problema</h2>
+                <p className="mt-3 text-gray-600">
+                  Resolve a desorganização e a falta de integração entre alunos, professores e coordenação, que prejudica o acompanhamento pedagógico.
+                </p>
+              </div>
+              <div data-aos="fade-up" data-aos-delay="600">
+                <h2 className="font-semibold text-2xl text-gray-900">A solução</h2>
+                <p className="mt-3 text-gray-600">
+                  Centraliza informações acadêmicas, comunicados, atividades e dados dos alunos em uma plataforma acessível e intuitiva.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Vupt! Express Section */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+          <div
+            className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
+            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight">
+              Vupt! <span className="text-[#103ADA] font-extrabold">Express</span>
+            </h1>
+            <p className="text-gray-600 mt-6 text-lg leading-relaxed">
+              A VUPT! EXPRESS é uma plataforma inovadora que resolve problemas enfrentados por pequenos varejistas, como mercadinhos, farmácias e pet shops, relacionados ao tempo de espera nas filas e à falta de integração no processo de compras. Focada em agilizar a entrega de produtos, ela otimiza pedidos e gerencia entregas de forma eficiente.
+            </p>
+          </div>
+
+          <div className="flex justify-center" data-aos="zoom-in" data-aos-delay="300">
+            <Image
+              src={vupt01}
+              alt="Mockup da plataforma Vupt! Express"
+              width={320}
+              height={640}
+              className="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-8 col-span-full bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+            <div
+              className="flex justify-center lg:justify-start"
+              data-aos="zoom-in"
+              data-aos-delay="400"
+            >
+              <Image
+                src={vupt02}
+                alt="Ilustração Vupt! Express"
+                width={400}
+                height={200}
+                className="rounded-lg shadow-md"
+              />
+            </div>
+
+            <div className="flex flex-col gap-6 text-gray-800">
+              <div data-aos="fade-up" data-aos-delay="500">
+                <h2 className="font-semibold text-2xl text-gray-900">O problema</h2>
+                <p className="mt-3 text-gray-600">
+                  Filas longas, falta de integração e automação, e erros em pedidos são desafios comuns para pequenos comerciantes e consumidores.
+                </p>
+              </div>
+              <div data-aos="fade-up" data-aos-delay="600">
+                <h2 className="font-semibold text-2xl text-gray-900">A solução</h2>
+                <p className="mt-3 text-gray-600">
+                  Automatiza e simplifica o processo de compra e entrega, integrando comerciantes, sistemas de pagamento e logística para uma experiência rápida e sem erros.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Methodology Section */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-24 bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+          <div data-aos="fade-right" data-aos-delay="200">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 tracking-tight">
+              Metodologia Usada
+            </h2>
+            <p className="text-gray-600 text-lg leading-relaxed">
+              Utilizamos uma metodologia inovadora baseada em escuta ativa, prototipagem rápida e validação contínua com usuários finais. Colocamos alunos, professores e gestores no centro do processo, ouvindo suas dores e testando soluções em ciclos curtos. Combinamos design centrado no usuário com práticas ágeis, criando produtos funcionais, leves e alinhados às necessidades educacionais.
+            </p>
+          </div>
+
+          <div className="flex justify-center" data-aos="zoom-in" data-aos-delay="300">
             <Image
               src={metodologia}
               alt="Ilustração de metodologia"
-              width={280}
-              height={280}
-              className="max-w-[280px]"
-              loading="eager" // Força carregamento imediato
+              width={300}
+              height={300}
+              className="max-w-[300px] rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
+              loading="eager"
             />
           </div>
-        </div>
+        </section>
       </main>
       <Footer />
     </>
