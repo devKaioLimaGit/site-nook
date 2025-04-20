@@ -35,6 +35,9 @@ export default function Header() {
           <Link href="/" className="hover:underline underline-offset-4">
             Home
           </Link>
+          <Link href="/news" className="hover:underline underline-offset-4">
+            News
+          </Link>
           <Link href="/aplication" className="hover:underline underline-offset-4">
             Aplicações
           </Link>
@@ -43,6 +46,9 @@ export default function Header() {
           </Link>
           <Link href="/timeline" className="hover:underline underline-offset-4">
             Timeline
+          </Link>
+          <Link href="/signin" className="hover:underline underline-offset-4">
+            Login
           </Link>
         </nav>
       </div>
@@ -53,6 +59,9 @@ export default function Header() {
           <Link href="/" onClick={() => setMenuOpen(false)} className="block">
             Home
           </Link>
+          <Link href="/news" onClick={() => setMenuOpen(false)} className="block">
+            News
+          </Link>
           <Link href="/aplication" onClick={() => setMenuOpen(false)} className="block">
             Aplicações
           </Link>
@@ -61,6 +70,9 @@ export default function Header() {
           </Link>
           <Link href="/timeline" onClick={() => setMenuOpen(false)} className="block">
             Timeline
+          </Link>
+          <Link href="/signin" onClick={() => setMenuOpen(false)} className="block">
+            Login
           </Link>
         </div>
       )}
