@@ -1,13 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
-import { io, Socket } from "socket.io-client";
+// import { io, Socket } from "socket.io-client";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
 
-let socket: Socket;
+// let socket: Socket;
 
 interface NewsType {
   id: string;
@@ -37,7 +37,7 @@ export default function News() {
 
     async function fetchNews() {
       try {
-        const response = await fetch("http://localhost:3000/news");
+        const response = await fetch("https://nook-iota.vercel.app/news");
         const data = await response.json();
         setNewsList(data);
       } catch (error) {
@@ -47,16 +47,16 @@ export default function News() {
 
     fetchNews();
 
-    socket = io("http://localhost:3000");
+    // socket = io("http://localhost:3000");
 
-    socket.on("newsCreated", (news: NewsType) => {
-      console.log(news)
-      setNewsList((prev) => [news, ...prev]);
-    });
+    // socket.on("newsCreated", (news: NewsType) => {
+    //   console.log(news)
+    //   setNewsList((prev) => [news, ...prev]);
+    // });
 
-    return () => {
-      socket.disconnect();
-    };
+    // return () => {
+    //   socket.disconnect();
+    // };
   }, []);
 
   return (

@@ -109,7 +109,8 @@ export default function Header() {
           </Link>
           <Link
             href="/news"
-            className="hover:underline underline-offset-4"
+            onClick={() => setMenuOpen(false)} // Adicionado onClick
+            className="block"
             data-aos="fade-up"
             data-aos-delay="300"
           >
@@ -120,7 +121,7 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
             className="block"
             data-aos="fade-up"
-            data-aos-delay="300"
+            data-aos-delay="400"
           >
             Aplicações
           </Link>
@@ -129,7 +130,7 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
             className="block"
             data-aos="fade-up"
-            data-aos-delay="400"
+            data-aos-delay="500"
           >
             Sobre
           </Link>
@@ -138,7 +139,7 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
             className="block"
             data-aos="fade-up"
-            data-aos-delay="500"
+            data-aos-delay="600"
           >
             Timeline
           </Link>
