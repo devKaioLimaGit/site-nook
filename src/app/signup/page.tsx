@@ -9,6 +9,7 @@ import { api } from "@/services/api";
 import { ToastContainer, toast } from 'react-toastify';
 import {redirect} from "next/navigation"
 
+
 export default function Signup() {
   useEffect(() => {
     import('aos').then((AOS) => {
@@ -26,7 +27,7 @@ export default function Signup() {
     const password = formData.get("password");
 
     if (name === "" || email === "" || password === "") {
-      console.log("PREENCHA TODOS OS CAMPOS");
+      toast.warn("Preencha todos os campos!");
       return
     }
 

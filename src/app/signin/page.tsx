@@ -5,7 +5,10 @@ import Footer from "../components/Footer";
 import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { ToastContainer, toast } from 'react-toastify';
 import { useEffect } from "react";
+import { api } from "@/services/api";
+import { redirect } from "next/navigation";
 
 export default function Signin() {
   useEffect(() => {
@@ -16,8 +19,43 @@ export default function Signin() {
     });
   }, []);
 
+  async function handlerLogin(formData: FormData) {
+    const email = formData.get("email")
+    const password = formData.get("password");
+
+    if (email === "" || password === "") {
+      toast.warn("Preencha todos os campos!");
+      return
+    }
+
+    try{
+      const response = await api.post("/session",{
+        email,
+        password
+      });
+      
+      if(!response.data.token){
+        toast.error("Erro email ou senha incorretos!");
+        return
+      }
+
+      toast.success("Usuário registrado com sucesso!");
+
+    }catch(error){
+      toast.error("Erro email ou senha incorretos!");
+    }
+
+
+    
+    setTimeout(() => {
+      redirect("/dashboard")
+    }, 3000);
+
+  }
+
   return (
     <>
+      <ToastContainer />
       {/* Tela com imagem de fundo */}
       <section className="relative w-full h-screen bg-gray-900 overflow-x-hidden">
         <div className="absolute inset-0 z-0">
@@ -68,7 +106,7 @@ export default function Signin() {
             data-aos="fade-up"
             data-aos-delay="600"
           >
-            <form className="space-y-6">
+            <form action={handlerLogin} className="space-y-6">
               <div>
                 <label
                   htmlFor="email"
