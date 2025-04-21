@@ -20,37 +20,33 @@ export default function Signin() {
   }, []);
 
   async function handlerLogin(formData: FormData) {
-    const email = formData.get("email")
+    const email = formData.get("email");
     const password = formData.get("password");
 
     if (email === "" || password === "") {
       toast.warn("Preencha todos os campos!");
-      return
+      return;
     }
 
-    try{
-      const response = await api.post("/session",{
+    try {
+      const response = await api.post("/session", {
         email,
-        password
+        password,
       });
-      
-      if(!response.data.token){
-        toast.error("Erro email ou senha incorretos!");
-        return
+
+      if (!response.data.token) {
+        toast.error("Erro: e-mail ou senha incorretos!");
+        return;
       }
 
       toast.success("Usuário registrado com sucesso!");
-
-    }catch(error){
-      toast.error("Erro email ou senha incorretos!");
+    } catch {
+      toast.error("Erro: e-mail ou senha incorretos!");
     }
 
-
-    
     setTimeout(() => {
-      redirect("/dashboard")
+      redirect("/dashboard");
     }, 3000);
-
   }
 
   return (
