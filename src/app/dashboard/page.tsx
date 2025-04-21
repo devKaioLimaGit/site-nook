@@ -22,9 +22,10 @@ export default function CreateNews() {
     async function handlerCategory(formData: FormData) {
         const token = await getCookieClient();
         const name = formData.get("name");
+        console.log(name, token)
         try {
             await api.post(
-                "/cateogry",
+                "/category",
                 { name},
                 {
                     headers: {
