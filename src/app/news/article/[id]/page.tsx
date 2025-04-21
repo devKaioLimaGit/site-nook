@@ -142,7 +142,7 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
         {/* Botão de voltar */}
         <div className="mt-12" data-aos="fade-up" data-aos-delay="400">
           <Link
-            href="/"
+            href="/news"
             className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-[#103ADA] rounded-md hover:bg-gray-200 transition-colors"
             aria-label="Voltar para a página inicial"
           >
