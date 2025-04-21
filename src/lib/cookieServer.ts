@@ -8,4 +8,5 @@ export async function getCookieServer(): Promise<string | null> {
     console.error("Error retrieving server cookie:", error);
     return null;
   }
+
 }

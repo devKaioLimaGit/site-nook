@@ -1,3 +1,4 @@
+
 import { getCookie } from "cookies-next";
 
 export async function getCookieClient(): Promise<string | null> {
@@ -9,4 +10,3 @@ export async function getCookieClient(): Promise<string | null> {
     return null;
   }
 }
-
