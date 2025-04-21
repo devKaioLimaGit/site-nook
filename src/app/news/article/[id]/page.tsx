@@ -114,7 +114,7 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
       {article.banner && (
         <div className="mb-8" data-aos="zoom-in">
           <img
-            src={`http://localhost:3000/files/${article.banner}`}
+            src={`${article.banner}`}
             alt={article.title}
             className="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-md"
           />
