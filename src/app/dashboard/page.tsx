@@ -19,25 +19,23 @@ export default function CreateNews() {
         });
     }, []);
 
-    async function handlerCategory(formData:FormData){
+    async function handlerCategory(formData: FormData) {
         const token = await getCookieClient();
-
-        const name  = formData.get("name")
-
-        console.log(token, name)
-
-        try{
-            await api.post("/category",{name},{
-                headers:{
-                    Authorization:`Bearer ${token}`
+        const name = formData.get("name");
+        try {
+            await api.post(
+                "/cateogry",
+                { name},
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
                 }
-            })
-            toast.success("Categoria registrada!")
-        }catch(error){
-            toast.error("Falha ao registra categoria!")
-            return
+            );
+            toast.success("Categoria criada com sucesso!");
+        } catch {
+            toast.error("Falha ao criar categoria!");
         }
-
     }
 
     return (
