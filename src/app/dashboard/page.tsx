@@ -63,7 +63,7 @@ export default function Dashboard() {
         const file = formData.get("file") as File;
         const category_id = formData.get("category_id");
         try {
-            const response = await api.post("/news", {
+            await api.post("/news", {
                 name, description, file, category_id
             }, {
                 headers: {
