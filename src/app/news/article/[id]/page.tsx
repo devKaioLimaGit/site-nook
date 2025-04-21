@@ -38,7 +38,7 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
 
     async function fetchNews() {
       try {
-        const response = await fetch(`http://localhost:3000/news/article/${paramId}`);
+        const response = await fetch(`https://nook-zeta.vercel.app/news/article/${paramId}`);
         if (!response.ok) {
           throw new Error("Artigo não encontrado");
         }
