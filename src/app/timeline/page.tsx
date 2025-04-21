@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -23,7 +23,7 @@ export default function TimeLine() {
     <>
       <Header />
       <section
-        className="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-x-20 gap-y-12"
+        className="overflow-hidden max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-x-20 gap-y-12"
         data-aos="fade-up"
       >
         {/* Nossa História */}
@@ -67,7 +67,7 @@ export default function TimeLine() {
       </section>
 
       <section
-        className="bg-[#0A0A13] text-white py-16 px-6"
+        className="bg-[#0A0A13] text-white py-16 px-6 overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="100"
       >
@@ -94,7 +94,7 @@ export default function TimeLine() {
       </section>
 
       <section
-        className="bg-[#ffff] text-white py-16 px-6"
+        className="bg-[#ffff] text-white py-16 px-6 overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="100"
       >
