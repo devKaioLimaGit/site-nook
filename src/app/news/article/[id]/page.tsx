@@ -6,6 +6,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
 import { use } from "react"; // Import React.use
+import { api } from "@/services/api";
 
 // Tipo de dados do artigo
 type Article = {
@@ -36,14 +37,18 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
       return;
     }
 
-    async function fetchNews() {
+    async function handlerArticle() {
       try {
-        const response = await fetch(`https://nook-zeta.vercel.app/news/article/${paramId}`);
-        if (!response.ok) {
+        const response = await api.get(`/news/article/${paramId}`);
+
+        console.log(response)
+
+        if (response.status != 200) {
           throw new Error("Artigo não encontrado");
         }
 
-        const data = await response.json();
+        const data = await response.data;
+
         setArticle(data);
       } catch (error) {
         console.error("Erro ao buscar artigo:", error);
@@ -53,7 +58,7 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
       }
     }
 
-    fetchNews();
+    handlerArticle();
 
     // Inicializa o AOS
     AOS.init({

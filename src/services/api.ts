@@ -2,5 +2,5 @@ import axios from "axios";
 
 
 export const api = axios.create({
-    baseURL: "https://nook-zeta.vercel.app"
+    baseURL: "https://nook-taupe.vercel.app"
 });
