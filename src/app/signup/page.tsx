@@ -3,21 +3,53 @@ import Image from "next/image";
 import Header from "../components/HeaderHome";
 import Footer from "../components/Footer";
 import Link from "next/link";
-import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { api } from "@/services/api";
+import { ToastContainer, toast } from 'react-toastify';
+import {redirect} from "next/navigation"
 
 export default function Signup() {
   useEffect(() => {
-    AOS.init({
-      duration: 800,
-      easing: "ease-out",
-      once: true,
+    import('aos').then((AOS) => {
+      AOS.init({
+        duration: 800,
+        easing: "ease-out",
+        once: true,
+      });
     });
   }, []);
 
+  async function handlerRegister(formData: FormData) {
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    if (name === "" || email === "" || password === "") {
+      console.log("PREENCHA TODOS OS CAMPOS");
+      return
+    }
+
+    try {
+      await api.post("/users", {
+        name,
+        email,
+        password
+      });
+      toast.success("Cadastro realizado com sucesso!");
+    } catch (error) {
+      toast.error("Erro ao cadastrar. Tente novamente.");
+      console.log(error)
+    }
+
+    setTimeout(() => {
+      redirect("/signin")
+    }, 3000);
+
+  }
   return (
     <>
+      <ToastContainer />
       {/* Tela de Fundo com Imagem */}
       <section className="relative w-full h-screen bg-gray-900 overflow-x-hidden">
         <div className="absolute inset-0 z-0">
@@ -68,7 +100,7 @@ export default function Signup() {
             data-aos="fade-up"
             data-aos-delay="600"
           >
-            <form className="space-y-6">
+            <form action={handlerRegister} className="space-y-6">
               <div>
                 <label
                   htmlFor="name"
