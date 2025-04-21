@@ -43,10 +43,8 @@ async function validateToken(token: string) {
                 Authorization: `Bearer ${token}`
             }
         })
-
         return true;
-    } catch (err) {
-        console.log(error);
-        return false;
+    } catch {
+        return false; // Ignora o erro sem declarar 'err'
     }
 }
