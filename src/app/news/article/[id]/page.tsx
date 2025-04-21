@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
-import Image from "next/image"; // Importar o componente Image
+import Image from "next/image";
 import { use } from "react";
 
 // Tipo de dados do artigo
@@ -44,7 +44,8 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
           throw new Error("Artigo não encontrado");
         }
 
-        setArticle(response.data);
+        const data: Article = await response.json(); // Parse the response body
+        setArticle(data);
       } catch (error) {
         console.error("Erro ao buscar artigo:", error);
         notFound();
@@ -122,7 +123,7 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
             fill
             style={{ objectFit: "cover" }}
             className="rounded-lg shadow-md"
-            priority // Prioriza o carregamento para imagens acima da dobra
+            priority
           />
         </div>
       )}
