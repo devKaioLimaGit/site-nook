@@ -37,7 +37,7 @@ export default function News() {
 
     async function fetchNews() {
       try {
-        const response = await fetch("https://nook-iota.vercel.app/news");
+        const response = await fetch("https://nook-zeta.vercel.app/news");
         const data = await response.json();
         setNewsList(data);
       } catch (error) {
