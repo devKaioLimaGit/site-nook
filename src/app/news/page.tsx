@@ -37,7 +37,7 @@
 
       async function fetchNews() {
         try {
-          const response = await fetch("https://nook-amber.vercel.app/news");
+          const response = await fetch("https://nooke-ashen.vercel.app/news");
           const data = await response.json();
           setNewsList(data);
         } catch (error) {

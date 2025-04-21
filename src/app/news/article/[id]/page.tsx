@@ -39,7 +39,7 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
 
     async function fetchArticle() {
       try {
-        const response = await fetch(`https://nook-amber.vercel.app/news/article/${paramId}`);
+        const response = await fetch(`https://nooke-ashen.vercel.app/news/article/${paramId}`);
         if (!response.ok) {
           throw new Error("Artigo não encontrado");
         }
