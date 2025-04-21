@@ -80,7 +80,7 @@ export default function News() {
               </button>
               <h2 className="text-xl font-semibold mt-4">{item.title}</h2>
               <h2 className="text-[16] font-medium mt-4">
-                Escrita por: <span className="text-[#103ADA] font-medium">{item.user?.name || "Desconhecido"}</span>
+                Publicado por: <span className="text-[#103ADA] font-medium">{item.user?.name || "Desconhecido"}</span>
               </h2>
               <span className="text-sm text-gray-400 mt-4 block">
                 Criado em: {new Date(item.created_at).toLocaleString()}
