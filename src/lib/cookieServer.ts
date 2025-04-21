@@ -1,4 +1,3 @@
-// lib/cookieServer.ts
 import { cookies } from "next/headers";
 
 export async function getCookieServer(): Promise<string | null> {
@@ -9,4 +8,5 @@ export async function getCookieServer(): Promise<string | null> {
     console.error("Error retrieving server cookie:", error);
     return null;
   }
+
 }

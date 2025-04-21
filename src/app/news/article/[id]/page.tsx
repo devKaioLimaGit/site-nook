@@ -40,9 +40,8 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
 
     async function fetchArticle() {
       try {
-        const response = await api.get(`/news/article/${paramId}`);
-
-        if (response.status !== 200) {
+        const response = await fetch(`https://nook-taupe.vercel.app/news/article/${paramId}`);
+        if (!response.ok) {
           throw new Error("Artigo não encontrado");
         }
 

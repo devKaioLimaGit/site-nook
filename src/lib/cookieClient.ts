@@ -1,4 +1,4 @@
-// lib/cookieClient.ts
+
 import { getCookie } from "cookies-next";
 
 export async function getCookieClient(): Promise<string | null> {

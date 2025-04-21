@@ -1,7 +1,6 @@
 // middleware.ts
 import { NextRequest, NextResponse } from "next/server";
 import { getCookieServer } from "./lib/cookieServer";
-import { error } from "console";
 import { api } from "./services/api";
 
 export async function middleware(req: NextRequest) {
