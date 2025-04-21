@@ -7,7 +7,6 @@ import "aos/dist/aos.css";
 import Link from "next/link";
 import Image from "next/image"; // Importar o componente Image
 import { use } from "react";
-import { api } from "@/services/api";
 
 // Tipo de dados do artigo
 type Article = {
