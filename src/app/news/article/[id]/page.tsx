@@ -5,7 +5,8 @@ import { notFound } from "next/navigation";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
-import { use } from "react"; // Import React.use
+import Image from "next/image"; // Importar o componente Image
+import { use } from "react";
 import { api } from "@/services/api";
 
 // Tipo de dados do artigo
@@ -27,7 +28,7 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
   const [article, setArticle] = useState<Article | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // Unwrap params using React.use()
+  // Unwrap params usando React.use()
   const resolvedParams = use(params);
   const paramId = resolvedParams.id;
 
@@ -37,19 +38,15 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
       return;
     }
 
-    async function handlerArticle() {
+    async function fetchArticle() {
       try {
         const response = await api.get(`/news/article/${paramId}`);
 
-        console.log(response)
-
-        if (response.status != 200) {
+        if (response.status !== 200) {
           throw new Error("Artigo não encontrado");
         }
 
-        const data = await response.data;
-
-        setArticle(data);
+        setArticle(response.data);
       } catch (error) {
         console.error("Erro ao buscar artigo:", error);
         notFound();
@@ -58,7 +55,7 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
       }
     }
 
-    handlerArticle();
+    fetchArticle();
 
     // Inicializa o AOS
     AOS.init({
@@ -66,7 +63,10 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
       easing: "ease-in-out",
       once: true,
     });
-  }, [paramId]); // Use paramId as dependency instead of params
+
+    // Cleanup do AOS ao desmontar o componente
+    return () => AOS.refresh();
+  }, [paramId]);
 
   if (loading) {
     return (
@@ -117,11 +117,14 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
       </header>
 
       {article.banner && (
-        <div className="mb-8" data-aos="zoom-in">
-          <img
-            src={`${article.banner}`}
+        <div className="mb-8 relative w-full h-[500px]" data-aos="zoom-in">
+          <Image
+            src={article.banner}
             alt={article.title}
-            className="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-md"
+            fill
+            style={{ objectFit: "cover" }}
+            className="rounded-lg shadow-md"
+            priority // Prioriza o carregamento para imagens acima da dobra
           />
         </div>
       )}
