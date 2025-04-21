@@ -19,7 +19,7 @@ export default function Dashboard() {
         async function listCategory() {
             const token = await getCookieClient();
             try {
-                const response = await api.get(
+                const data = await api.get(
                     "/category",
                     {
                         headers: {
@@ -27,10 +27,10 @@ export default function Dashboard() {
                         },
                     }
                 );
-                console.log(response.data)
-                setCategories(response.data)
+                console.log(data.data)
+                setCategories(data.data)
                 toast.success("Categoria carregadas!");
-            } catch (error) {
+            } catch {
                 toast.error("Erro ao carregadar categorias!");
             }
         }
@@ -41,7 +41,7 @@ export default function Dashboard() {
         const token = await getCookieClient();
         const name = formData.get("name");
         try {
-            const response = await api.post(
+            await api.post(
                 "/category",
                 { name },
                 {
