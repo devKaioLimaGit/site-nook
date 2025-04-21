@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <>
       {/* Seção Hero */}
-      <section className="relative w-full h-screen bg-gray-900 overflow-x-hidden">
+      <section className="relative w-full h-[1280] bg-gray-900 overflow-x-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/image/home/pessoal.jpeg"
@@ -28,7 +28,7 @@ export default function Home() {
             layout="fill"
             objectFit="cover"
             objectPosition="center"
-            quality={90}
+            quality={100}
             priority
           />
         </div>
@@ -39,7 +39,7 @@ export default function Home() {
         <header className="relative z-30 w-full">
           <Header />
         </header>
-        <div className="absolute top-52 sm:top-52 md:top-40 left-0 right-0 flex flex-col justify-start items-center md:items-start z-20 text-white px-4 sm:px-6 md:px-10 lg:px-16">
+        <div className="absolute top-60 sm:top-52 md:top-40 left-0 right-0 flex flex-col justify-start items-center md:items-start z-20 text-white px-4 sm:px-6 md:px-10 lg:px-16">
           <p
             className="text-base sm:text-lg md:text-xl lg:text-2xl font-light tracking-wider uppercase opacity-90"
             data-aos="fade-up"
