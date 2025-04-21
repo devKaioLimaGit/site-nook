@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import Header from "../components/HeaderHome";
 import Footer from "../components/Footer";
@@ -8,9 +9,12 @@ import "aos/dist/aos.css";
 import { ToastContainer, toast } from 'react-toastify';
 import { useEffect } from "react";
 import { api } from "@/services/api";
-import { redirect } from "next/navigation";
+import Cookies from "js-cookie"; // <-- Aqui é o segredo!
+import { useRouter } from "next/navigation";
 
 export default function Signin() {
+  const router = useRouter();
+
   useEffect(() => {
     AOS.init({
       duration: 800,
@@ -20,10 +24,10 @@ export default function Signin() {
   }, []);
 
   async function handlerLogin(formData: FormData) {
-    const email = formData.get("email");
-    const password = formData.get("password");
+    const email = formData.get("email")?.toString();
+    const password = formData.get("password")?.toString();
 
-    if (email === "" || password === "") {
+    if (!email || !password) {
       toast.warn("Preencha todos os campos!");
       return;
     }
@@ -34,19 +38,30 @@ export default function Signin() {
         password,
       });
 
-      if (!response.data.token) {
+      const token = response.data?.token;
+
+      if (!token) {
         toast.error("Erro: e-mail ou senha incorretos!");
         return;
       }
 
-      toast.success("Usuário registrado com sucesso!");
-    } catch {
-      toast.error("Erro: e-mail ou senha incorretos!");
-    }
+      // Armazenar o token como cookie no client
+      Cookies.set("session", token, {
+        expires: 30, // 30 dias
+        path: "/",
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+      });
 
-    setTimeout(() => {
-      redirect("/dashboard");
-    }, 3000);
+      toast.success("Login realizado com sucesso!");
+
+      setTimeout(() => {
+        router.push("/dashboard");
+      }, 2000);
+    } catch (error) {
+      toast.error("Erro: e-mail ou senha incorretos!");
+      console.error(error);
+    }
   }
 
   return (
@@ -104,10 +119,7 @@ export default function Signin() {
           >
             <form action={handlerLogin} className="space-y-6">
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-200"
-                >
+                <label htmlFor="email" className="block text-sm font-medium text-gray-200">
                   E-mail
                 </label>
                 <input
@@ -120,10 +132,7 @@ export default function Signin() {
               </div>
 
               <div>
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium text-gray-200"
-                >
+                <label htmlFor="password" className="block text-sm font-medium text-gray-200">
                   Senha
                 </label>
                 <input
