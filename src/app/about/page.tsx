@@ -104,7 +104,7 @@ export default function About() {
   return (
     <>
       <Header />
-      <div className="flex flex-col items-center justify-center min-h-screen w-full overflow-x-hidden">
+      <div className="flex flex-col items-center justify-center min-h-screen w-full overflow-x-hidden overflow-y-hidden">
         <section
           className="w-full max-w-7xl bg-white px-4 sm:px-6 lg:px-8 py-12 mx-auto"
           data-aos="fade-up"
