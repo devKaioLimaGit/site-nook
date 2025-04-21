@@ -16,19 +16,9 @@ export default function About() {
       once: true, // Animation occurs only once
     });
   }, []);
-  // Apague esta parte:
-  interface UserProps {
-    id: string
-    name: string
-    role: string
-    image: string
-    description: string
-    linkedin: string
-  }
 
   // State to track which team member's description is visible
   const [activeMember, setActiveMember] = useState<string | null>(null);
-
 
   // Toggle description visibility on click
   const toggleDescription = (memberId: string) => {
@@ -36,7 +26,7 @@ export default function About() {
   };
 
   // Team members data
-  const teamMembers: UserProps[] = [
+  const teamMembers = [
     {
       id: "erick",
       name: "Erick Carrasco",
@@ -114,7 +104,7 @@ export default function About() {
   return (
     <>
       <Header />
-      <div className="flex flex-col items-center justify-center min-h-screen">
+      <div className="flex flex-col items-center justify-center min-h-screen w-full overflow-x-hidden">
         <section
           className="w-full max-w-7xl bg-white px-4 sm:px-6 lg:px-8 py-12 mx-auto"
           data-aos="fade-up"
@@ -127,7 +117,7 @@ export default function About() {
           >
             <div className="w-full lg:w-1/2">
               <h1
-                className="text-3xl font-semibold text-black sm:text-4xl mb-10"
+                className="text-3xl font-semibold text-black sm:text-4xl mb-10 text-center lg:text-left"
                 data-aos="fade-up"
                 data-aos-delay="300"
               >
@@ -166,13 +156,13 @@ export default function About() {
               data-aos-delay="300"
             >
               <Image
-                className="object-contain"
+                className="object-contain max-w-full h-auto"
                 src="/image/about/bonecocomnotebook.png"
                 width={300}
                 height={300}
                 quality={100}
                 alt="Foto de um boneco com um notebook"
-                sizes="(max-width: 768px) 80vw, 400px"
+                sizes="(max-width: 768px) 80vw, 40vw"
               />
             </div>
           </div>
@@ -218,13 +208,13 @@ export default function About() {
               data-aos-delay="300"
             >
               <Image
-                className="object-contain"
+                className="object-contain max-w-full h-auto"
                 src="/image/about/apertodemaos.png"
                 width={300}
                 height={300}
                 quality={100}
                 alt="Foto de um aperto de mãos"
-                sizes="(max-width: 768px) 80vw, 400px"
+                sizes="(max-width: 768px) 80vw, 40vw"
               />
             </div>
           </div>
@@ -236,18 +226,18 @@ export default function About() {
           data-aos-delay="100"
         >
           <h1
-            className="text-3xl font-semibold text-black sm:text-4xl mb-10"
+            className="text-3xl font-semibold text-black sm:text-4xl mb-10 text-center"
             data-aos="fade-up"
             data-aos-delay="200"
           >
             Equipe <span className="text-[#103ADA] font-medium">NOOK</span>
           </h1>
           <div
-            className="w-full flex flex-col justify-center items-start mb-10"
+            className="w-full flex flex-col justify-center items-center mb-10"
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            <div className="w-full grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
               {teamMembers.map((member, index) => (
                 <div
                   key={member.id}
@@ -258,28 +248,29 @@ export default function About() {
                 >
                   <Image
                     src={member.image}
-                    width={150}
-                    height={150}
+                    width={120}
+                    height={120}
                     quality={100}
                     alt={`Foto de ${member.name}`}
-                    className="object-cover"
-                    sizes="(max-width: 768px) 50vw, 200px"
+                    className="object-cover rounded-full max-w-full h-auto"
+                    sizes="(max-width: 768px) 40vw, 20vw"
                   />
                   <div className="mt-2">
-                    <h3 className="font-semibold text-base sm:text-lg">
+                    <h3 className="font-semibold text-sm sm:text-base">
                       {member.name}
                     </h3>
-                    <span className="text-gray-600 text-sm sm:text-base">
+                    <span className="text-gray-600 text-xs sm:text-sm">
                       {member.role}
                     </span>
                   </div>
                   <div
-                    className={`absolute top-0 left-0 w-full h-full bg-white ${activeMember === member.id
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-4"
-                      } lg:group-hover:opacity-100 lg:group-hover:translate-y-0 transition-all duration-300 shadow-lg rounded-lg p-4 flex flex-col items-center justify-center`}
+                    className={`absolute top-0 left-0 w-full h-full bg-white ${
+                      activeMember === member.id
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-4 pointer-events-none"
+                    } lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:group-hover:pointer-events-auto transition-all duration-300 shadow-lg rounded-lg p-4 flex flex-col items-center justify-center`}
                   >
-                    <p className="text-sm text-gray-700 mb-4">
+                    <p className="text-xs sm:text-sm text-gray-700 mb-4">
                       {member.description}
                     </p>
                     <div className="flex gap-4">
@@ -289,7 +280,7 @@ export default function About() {
                         rel="noopener noreferrer"
                         aria-label={`LinkedIn de ${member.name}`}
                       >
-                        <FaLinkedin className="text-[#103ADA] text-xl hover:text-[#0A66C2] transition-colors" />
+                        <FaLinkedin className="text-[#103ADA] text-lg hover:text-[#0A66C2] transition-colors" />
                       </a>
                     </div>
                   </div>
