@@ -20,7 +20,7 @@ export default function Header() {
         </button>
 
         {/* Logo */}
-        <Link href="/home" className="flex-shrink-0">
+        <Link href="/" className="flex-shrink-0">
           <Image
             src={"/image/header/logoNook.png"}
             alt="Logo"
