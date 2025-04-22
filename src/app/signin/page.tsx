@@ -67,7 +67,7 @@ export default function Signin() {
     <>
       <ToastContainer />
       {/* Tela com imagem de fundo */}
-      <section className="relative w-full   h-[1000] bg-gray-900 overflow-x-hidden">
+      <section className="relative w-full   h-[800] bg-gray-900 overflow-x-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/image/home/pessoal.jpeg"
