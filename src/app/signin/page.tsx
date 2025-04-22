@@ -152,7 +152,7 @@ export default function Signin() {
               </button>
             </form>
 
-            <p
+            {/* <p
               className="mt-4 text-sm text-gray-300 text-center"
               data-aos="fade-up"
               data-aos-delay="800"
@@ -161,7 +161,7 @@ export default function Signin() {
               <Link href="/signup" className="text-blue-400 hover:underline">
                 Cadastre-se
               </Link>
-            </p>
+            </p> */}
           </div>
         </div>
       </section>
