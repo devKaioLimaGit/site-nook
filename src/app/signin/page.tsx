@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Header from "../components/HeaderHome";
 import Footer from "../components/Footer";
-import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { ToastContainer, toast } from 'react-toastify';
