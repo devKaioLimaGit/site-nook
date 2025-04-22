@@ -14,6 +14,7 @@ interface ListCategoryProps {
 
 export default function Dashboard() {
     const [categories, setCategories] = useState<ListCategoryProps[] | null>(null)
+    const [reload, setReload] = useState<boolean>(false);
 
     useEffect(() => {
         async function listCategory() {
@@ -27,7 +28,6 @@ export default function Dashboard() {
                         },
                     }
                 );
-                console.log(data.data)
                 setCategories(data.data)
                 toast.success("Categoria carregadas!");
             } catch {
@@ -35,7 +35,7 @@ export default function Dashboard() {
             }
         }
         listCategory()
-    }, []);
+    }, [reload]);
 
     async function handlerCategory(formData: FormData) {
         const token = await getCookieClient();
@@ -50,6 +50,12 @@ export default function Dashboard() {
                     },
                 }
             );
+            if(reload){
+                setReload(false)
+            }else{
+                setReload(true)
+            }
+           
             toast.success("Categoria criada com sucesso!");
         } catch {
             toast.error("Falha ao criar categoria!");
@@ -88,7 +94,51 @@ export default function Dashboard() {
 
             {/* Main Section */}
             <section className="relative w-full min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 py-16 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
+
+                
                 <div className="relative max-w-3xl mx-auto">
+
+                    
+                    {/* Category Creation Form */}
+                    <h2 className="text-3xl sm:text-4xl font-extrabold text-white text-center mb-8">
+                        Criar Nova{" "}
+                        <span className="text-[#103ADA] relative inline-block">
+                            Categoria
+                            <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-white to-transparent"></span>
+                        </span>
+                    </h2>
+
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-xl">
+                        <form action={handlerCategory} className="space-y-6">
+                            <div>
+                                <label
+                                    htmlFor="category_name"
+                                    className="block text-sm font-medium text-gray-200"
+                                >
+                                    Nome da Categoria
+                                </label>
+                                <input
+                                    type="text"
+                                    id="category_name"
+                                    name="name"
+                                    className="mt-2 block w-full rounded-lg border-none bg-gray-700/50 text-white placeholder-gray-400 shadow-sm focus:ring-2 focus:ring-[#103ADA] focus:border-transparent py-3 px-4 transition-all duration-300"
+                                    placeholder="Digite o nome da categoria"
+                                />
+                            </div>
+
+                            <div className="flex justify-end">
+                                <button
+                                    type="submit"
+                                    className="px-8 py-3 bg-gradient-to-r from-[#103ADA] to-blue-500 text-white font-semibold rounded-xl transition-all duration-300 hover:from-blue-500 hover:to-blue-700 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300/50"
+                                >
+                                    Criar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
                     {/* News Creation Form */}
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white text-center mb-8">
                         Criar Nova{" "}
@@ -140,6 +190,7 @@ export default function Dashboard() {
                                     Categoria
                                 </label>
                                 <select name="category_id" className="mt-2 block w-full rounded-lg border-none bg-gray-700/50 text-white placeholder-gray-400 shadow-sm focus:ring-2 focus:ring-[#103ADA] focus:border-transparent py-3 px-4 transition-all duration-300">
+                                <option value="" selected disabled>Selecione</option>
                                     {categories?.map((item) => (
                                         <option key={item.id} value={item.id}>
                                             {item.name}
@@ -178,44 +229,6 @@ export default function Dashboard() {
                                     className="px-8 py-3 bg-gradient-to-r from-[#103ADA] to-blue-500 text-white font-semibold rounded-xl transition-all duration-300 hover:from-blue-500 hover:to-blue-700 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300/50"
                                 >
                                     Criar Notícia
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-
-                    {/* Category Creation Form */}
-                    <h2 className="text-3xl sm:text-4xl font-extrabold text-white text-center mb-8">
-                        Criar Nova{" "}
-                        <span className="text-[#103ADA] relative inline-block">
-                            Categoria
-                            <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-white to-transparent"></span>
-                        </span>
-                    </h2>
-
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-xl">
-                        <form action={handlerCategory} className="space-y-6">
-                            <div>
-                                <label
-                                    htmlFor="category_name"
-                                    className="block text-sm font-medium text-gray-200"
-                                >
-                                    Nome da Categoria
-                                </label>
-                                <input
-                                    type="text"
-                                    id="category_name"
-                                    name="name"
-                                    className="mt-2 block w-full rounded-lg border-none bg-gray-700/50 text-white placeholder-gray-400 shadow-sm focus:ring-2 focus:ring-[#103ADA] focus:border-transparent py-3 px-4 transition-all duration-300"
-                                    placeholder="Digite o nome da categoria"
-                                />
-                            </div>
-
-                            <div className="flex justify-end">
-                                <button
-                                    type="submit"
-                                    className="px-8 py-3 bg-gradient-to-r from-[#103ADA] to-blue-500 text-white font-semibold rounded-xl transition-all duration-300 hover:from-blue-500 hover:to-blue-700 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300/50"
-                                >
-                                    Criar
                                 </button>
                             </div>
                         </form>
