@@ -136,7 +136,7 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
           data-aos="fade-up"
           data-aos-delay="300"
         >
-          <p>{article.description}</p>
+            <p className="text-justify">{article.description}</p>
         </div>
 
         {/* Botão de voltar */}
