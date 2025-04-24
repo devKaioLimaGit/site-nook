@@ -83,7 +83,7 @@
                 >
                   {item.category?.name || "Sem categoria"} {/* Verificação de segurança */}
                 </button>
-                <h2 className="text-xl font-semibold mt-4">{item.title}</h2>
+                <h2 className="text-xl font-semibold mt-4 text-justify">{item.title}</h2>
                 <h2 className="text-[16] font-medium mt-4">
                   Publicado por: <span className="text-[#103ADA] font-medium">{item.user?.name || "Desconhecido"}</span>
                 </h2>
