@@ -8,6 +8,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
 import { use } from "react";
+import HTMLReactParser from 'html-react-parser';
 
 // Tipo de dados do artigo
 type Article = {
@@ -136,7 +137,7 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
           data-aos="fade-up"
           data-aos-delay="300"
         >
-            <p className="text-justify">{article.description}</p>
+            <p className="text-justify">{HTMLReactParser(article.description)}</p>
         </div>
 
         {/* Botão de voltar */}
