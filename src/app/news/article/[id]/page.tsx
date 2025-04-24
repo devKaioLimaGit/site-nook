@@ -107,7 +107,7 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
 
         {/* Título */}
         <h1
-          className="text-lg sm:text-4xl font-bold text-gray-900 mb-6 leading-tight text-justify"
+          className="text-base sm:text-base font-bold text-gray-900 mb-6 leading-tight text-justify"
           data-aos="fade-up"
           data-aos-delay="100"
         >
