@@ -69,7 +69,12 @@
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {newsList.map((item, index) => (
-              <div key={item.id} className="bg-white p-4 rounded shadow" data-aos="fade-up" data-aos-delay={`${index * 100}`}>
+        <div
+  key={item.id}
+  className="bg-white p-4 rounded shadow flex flex-col justify-between"
+  data-aos="fade-up"
+  data-aos-delay={`${index * 100}`}
+>
                 <img src={`${item.banner}`} alt={item.title} className="w-full h-48 object-cover rounded" />
                 <button
                   className="relative mt-2 bg-gradient-to-r from-[#103ADA] to-blue-500 text-white font-semibold rounded-xl min-w-[180px] transition-all duration-300 hover:from-blue-500 hover:to-blue-700 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300/50 z-10"
