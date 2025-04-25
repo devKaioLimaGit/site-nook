@@ -28,6 +28,7 @@
 
   export default function News() {
     const [newsList, setNewsList] = useState<NewsType[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
       AOS.init({
@@ -40,6 +41,7 @@
           const response = await fetch("https://nooke-ashen.vercel.app/news");
           const data = await response.json();
           setNewsList(data);
+          setLoading(false)
         } catch (error) {
           console.error("Erro ao buscar notícias:", error);
         }
@@ -58,6 +60,15 @@
       //   socket.disconnect();
       // };
     }, []);
+
+    if (loading) {
+      return (
+        <div className="flex justify-center items-center min-h-screen bg-white">
+          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-900"></div>
+          <p className="ml-3 text-base font-medium text-gray-700">Carregando Notícias...</p>
+        </div>
+      );
+    }
 
     return (
       <>
