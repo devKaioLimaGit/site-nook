@@ -47,6 +47,10 @@ export default function Dashboard() {
   async function handlerCategory(formData: FormData) {
     const token = await getCookieClient();
     const name = formData.get("name");
+    if(name === ""){
+      toast.warning("Não pode cadastrar categoria vazia!");
+      return
+    }
     try {
       await api.post(
         "/category",
