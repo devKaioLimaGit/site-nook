@@ -8,7 +8,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
 import { use } from "react";
-import HTMLReactParser from 'html-react-parser';
+import HTMLReactParser from "html-react-parser";
+import { DiscussionEmbed } from "disqus-react"; // Importe o DiscussionEmbed
 
 // Tipo de dados do artigo
 type Article = {
@@ -92,82 +93,95 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
     year: "numeric",
   });
 
-  return (<>
-<Header/>
-<div className="min-h-screen bg-white">
-      <article className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-        {/* Banner imagem */}
-        <div className="relative w-full h-64 sm:h-80 mb-8 rounded-lg overflow-hidden" data-aos="fade-up">
-          <img
-            src={article.banner}
-            alt={article.title}
-            className="w-full h-full object-contain"
-          />
-        </div>
-
-        {/* Título */}
-        <h1
-          className="text-lg sm:text-lg font-bold text-gray-900 mb-6 leading-tight text-justify"
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
-          {article.title}
-        </h1>
-
-        {/* Informações do artigo */}
-        <div
-          className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 pb-6 border-b border-gray-200"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          <div className="space-y-1">
-            <p className="text-sm text-gray-600">
-              Por <span className="font-medium text-gray-900">{article.user.name}</span>
-            </p>
-            <p className="text-sm text-gray-600">
-              Categoria: <span className="font-medium text-gray-900">{article.category.name}</span>
-            </p>
+  return (
+    <>
+      <Header />
+      <div className="min-h-screen bg-white">
+        <article className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+          {/* Banner imagem */}
+          <div className="relative w-full h-64 sm:h-80 mb-8 rounded-lg overflow-hidden" data-aos="fade-up">
+            <img
+              src={article.banner}
+              alt={article.title}
+              className="w-full h-full object-contain"
+            />
           </div>
-          <p className="text-sm text-gray-600">Publicado em {formattedDate}</p>
-        </div>
 
-        {/* Descrição do artigo */}
-        <div
-          className="prose prose-base max-w-none text-gray-800 leading-7"
-          data-aos="fade-up"
-          data-aos-delay="300"
-        >
-            <p className="text-justify">{HTMLReactParser(article.description)}</p>
-        </div>
-
-        {/* Botão de voltar */}
-        <div className="mt-12" data-aos="fade-up" data-aos-delay="400">
-          <Link
-            href="/news"
-            className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-[#103ADA] rounded-md hover:bg-gray-200 transition-colors"
-            aria-label="Voltar para a página inicial"
+          {/* Título */}
+          <h1
+            className="text-lg sm:text-lg font-bold text-gray-900 mb-6 leading-tight text-justify"
+            data-aos="fade-up"
+            data-aos-delay="100"
           >
-            <svg
-              className="w-4 h-4 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 19l-7-7m0 0l7-7m-7 7h18"
-              />
-            </svg>
-            Voltar para a página inicial
-          </Link>
-        </div>
-      </article>
-    </div>
-    <Footer/>
-  </>
+            {article.title}
+          </h1>
 
+          {/* Informações do artigo */}
+          <div
+            className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 pb-6 border-b border-gray-200"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div className="space-y-1">
+              <p className="text-sm text-gray-600">
+                Por <span className="font-medium text-gray-900">{article.user.name}</span>
+              </p>
+              <p className="text-sm text-gray-600">
+                Categoria: <span className="font-medium text-gray-900">{article.category.name}</span>
+              </p>
+            </div>
+            <p className="text-sm text-gray-600">Publicado em {formattedDate}</p>
+          </div>
+
+          {/* Descrição do artigo */}
+          <div
+            className="prose prose-base max-w-none text-gray-800 leading-7"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <p className="text-justify">{HTMLReactParser(article.description)}</p>
+          </div>
+
+          {/* Botão de voltar e Disqus */}
+          <div className="mt-12" data-aos="fade-up" data-aos-delay="400">
+            <Link
+              href="/news"
+              className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-[#103ADA] rounded-md hover:bg-gray-200 transition-colors"
+              aria-label="Voltar para a página inicial"
+            >
+              <svg
+                className="w-4 h-4 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                />
+              </svg>
+              Voltar para a página inicial
+            </Link>
+
+            {/* Seção de comentários do Disqus */}
+            <div className="mt-8" data-aos="fade-up" data-aos-delay="500">
+              <DiscussionEmbed
+                shortname="nook-3"
+                config={{
+                  url: `https://nooke-ashen.vercel.app/news/article/${article.id}`,
+                  identifier: article.id,
+                  title: article.title,
+                  language: "pt_BR",
+                }}
+              />
+            </div>
+          </div>
+        </article>
+      </div>
+      <Footer />
+    </>
   );
 }
