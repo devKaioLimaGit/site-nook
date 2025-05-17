@@ -30,7 +30,6 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,26 +39,25 @@ export default function RootLayout({
     <html lang="pt-BR">
       <head>
         <link rel="icon" href="/favicon.ico" />
+        {/* Plugin VLibras */}
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased bg-white`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased bg-white`}>
         {children}
 
-        {/* VLibras Plugin */}
-        <div vw className="enabled">
-          <div vw-access-button className="active"></div>
-          <div vw-plugin-wrapper>
+        {/* Estrutura do VLibras */}
+        <div className="enabled">
+          <div className="active" id="vlibras-access-button"></div>
+          <div className="vw-plugin-wrapper">
             <div className="vw-plugin-top-wrapper"></div>
           </div>
         </div>
 
-        <Script src="https://vlibras.gov.br/app/vlibras-plugin.js" strategy="afterInteractive" />
-        <Script
-          id="vlibras-init"
-          strategy="afterInteractive"
+        <script
           dangerouslySetInnerHTML={{
-            __html: `new window.VLibras.Widget('https://vlibras.gov.br/app');`,
+            __html: `
+              new window.VLibras.Widget('https://vlibras.gov.br/app');
+            `,
           }}
         />
       </body>
